@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Kenary</string>
+    <string name="title_home">Home</string>
+    <string name="title_calendar">Calendar</string>
+    <string name="title_messages">Messages</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_class">Classroom</string>
+    <string name="title_tutorias">Tutorias</string>
+    <string name="query_hint">Search for classrooms...</string>
 </resources>
