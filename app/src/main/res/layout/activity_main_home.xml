@@ -33,48 +33,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/ic_notifications_black_24dp" />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="37dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_corners"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:tabIndicatorColor="@color/colorPrimaryDark"
-        app:tabSelectedTextColor="@color/colorPrimaryDark">
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:id="@+id/classr"
-            android:layout_height="wrap_content"
-            android:text="@string/title_class" />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tuto"
-            android:text="@string/title_tutorias" />
-    </android.support.design.widget.TabLayout>
-
-    <android.support.v4.view.ViewPager
+    <FrameLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+        android:layout_height="0dp" />
 
 </android.support.constraint.ConstraintLayout>
