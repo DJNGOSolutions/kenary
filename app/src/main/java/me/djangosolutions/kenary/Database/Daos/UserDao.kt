@@ -9,12 +9,17 @@ import me.djangosolutions.kenary.Entity.User
 
 @Dao
 interface UserDao {
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM table_user")
     fun getAll(): LiveData<List<User>>
+
+    @Query("SELECT * FROM table_user Where idUser = :idUser")
+    fun getUserById(idUser: Int)  : LiveData<User>
+
+    //@Query("UPDATE table_user set column")
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(user: User)
 
-    @Query("DELETE FROM user")
+    @Query("DELETE FROM table_user")
     fun deleteAll()
 }
