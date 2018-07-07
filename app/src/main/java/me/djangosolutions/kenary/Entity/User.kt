@@ -4,12 +4,12 @@ import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
-@Entity(tableName = "user")
+@Entity(tableName = "table_user")
 data class User(@PrimaryKey @ColumnInfo(name = "idUser") var _idUser: Int = 0,
-                @ColumnInfo(name = "IdGenderUser ") var IdGenderUser : Int = 0,
-                @ColumnInfo(name = "IdAcademicLevelUser") var IdAcademicLevelUser: Int = 0,
-                @ColumnInfo(name = "IdRoleUser ") var nIdRoleUser : Int = 0,
-                @ColumnInfo(name = "IdRateUser") var IdRateUser: Int = 0,
+                @ColumnInfo(name = "idGenderUser ") var idGenderUser : Int = 0,
+                @ColumnInfo(name = "idAcademicLevelUser") var idAcademicLevelUser: Int = 0,
+                @ColumnInfo(name = "idRoleUser ") var idRoleUser : Int = 0,
+                @ColumnInfo(name = "idRateUser") var idRateUser: Int = 0,
                 @ColumnInfo(name = "UserPhoto") var UserPhoto: String = "",
                 @ColumnInfo(name = "UserName") var UserName: String = "",
                 @ColumnInfo(name = "UserAge ") var UserAge : Int = 0,
