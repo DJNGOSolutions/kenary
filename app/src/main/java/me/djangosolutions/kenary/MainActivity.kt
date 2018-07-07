@@ -13,12 +13,6 @@ import me.djangosolutions.kenary.Fragments.FragTuto
 
 class MainActivity : AppCompatActivity() {
 
-    private var mTextMessage: TextView? = null
-    internal var adapter = ViewPagerAdapter(supportFragmentManager)
-    private var tabLayout: TabLayout? = null
-    lateinit var viewPager: ViewPager
-
-
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home ->
@@ -41,21 +35,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        tabLayout = findViewById(R.id.tabLayout)
-        viewPager = findViewById(R.id.viewPager)
-        adapter.addFragment(FragClass(), "Classrooms")
-        adapter.addFragment(FragTuto(), "Tutorias")
-        tabLayout!!.setupWithViewPager(viewPager)
-        viewPager!!.adapter = adapter
 
-
-
-        val navigation = findViewById(R.id.navigation) as BottomNavigationView
+        val navigation = findViewById<BottomNavigationView>(R.id.navigation)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-    }
-
-    companion object {
-
     }
 
 }
