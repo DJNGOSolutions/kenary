@@ -52,23 +52,29 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/LettersLoginWhite16"/>
-
-                    <EditText
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/et_bg"
-                        android:fontFamily="sans-serif-light"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:textColorHint="@color/white"
+                        app:hintTextAppearance="@style/LettersLoginWhite16"
+                        app:counterTextAppearance="@style/LettersLoginWhite16"
+                        android:id="@+id/user"
+                        >
+                        <EditText
+                            android:id="@+id/username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textColorHighlight="@color/white"
+                            android:textColorLink="@color/white"
+                            android:textAppearance="@style/LettersLoginWhite16"
+                            android:hint="@string/username"
+                            />
+                    </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
 
@@ -125,6 +131,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="@style/LettersLoginWhite16"/>
+
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
                 android:layout_width="wrap_content"
@@ -133,6 +140,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:textAllCaps="false"
+                app:buttonSize="wide"
                 android:textColor="@color/white"
                 android:textAppearance="@style/LettersLoginWhite16"
 
