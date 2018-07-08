@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import me.djangosolutions.kenary.Fragments.PFragCal
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHome
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(PFragHome.newInstance("contents"))
                 return@OnNavigationItemSelectedListener true}
             R.id.navigation_calendar ->{
+                replaceFragment(PFragCal())
                 return@OnNavigationItemSelectedListener true}
             R.id.navigation_messages ->{
                 return@OnNavigationItemSelectedListener true}

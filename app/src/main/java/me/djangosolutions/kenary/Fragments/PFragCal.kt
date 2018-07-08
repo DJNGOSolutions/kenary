@@ -6,19 +6,15 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CalendarView
+import com.applandeo.materialcalendarview.CalendarView
 import me.djangosolutions.kenary.R
 
 class PFragCal: Fragment() {
-
-    private var v: View? = null
 
     private var mCalendarView: CalendarView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mCalendarView = v!!.findViewById(R.id.calendarView)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,6 +23,6 @@ class PFragCal: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        mCalendarView = view.findViewById(R.id.calendarView)
     }
 }
