@@ -1,5 +1,7 @@
 package me.djangosolutions.kenary.Fragments
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,13 +12,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import me.djangosolutions.kenary.Adapters.ClassRvAdapter
+import me.djangosolutions.kenary.Entity.Class
 import java.util.ArrayList
 import me.djangosolutions.kenary.Models.ModelClass
 import me.djangosolutions.kenary.R
+import me.djangosolutions.kenary.Viewmodels.ClassViewModel
 
 
 class FragClass : Fragment() {
-    var list: List<ModelClass>? = null
+    private var mClassViewModel: ClassViewModel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.classrooms, container, false)
@@ -24,22 +28,13 @@ class FragClass : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mClassViewModel = ViewModelProviders.of(this).get(ClassViewModel::class.java)
         val recyclerView = view.findViewById<RecyclerView>(R.id.classroomrv)
-
         val rv = view.findViewById<RecyclerView>(R.id.classroomrv)
         val lManager = GridLayoutManager(this.context, 2)
         rv!!.layoutManager = lManager
-        val adapter = ClassRvAdapter(view.context, getList())
+        val adapter = ClassRvAdapter(view.context)
+        mClassViewModel!!.getAll().observe(this, Observer<List<Class>>{ t -> adapter.setClassroom(t!!) })
         recyclerView.adapter = adapter
-    }
-
-    fun getList(): ArrayList<ModelClass> {
-        //Aqui deberia ir la funcion que obtendra la lista de class rooms
-        val list = ArrayList<ModelClass>()
-        list.add(ModelClass("1", "7 Classrooms", "Fluídos"))
-        list.add(ModelClass("2", "10 Classrooms", "Cálculo"))
-        list.add(ModelClass("3", "2 Classrooms", "Ciencias de los materiales"))
-        list.add(ModelClass("4", "5 Classrooms", "Contaduría"))
-        return list
     }
 }

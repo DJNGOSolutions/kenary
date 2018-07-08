@@ -8,6 +8,8 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "class_table")
 data class Class(@PrimaryKey @ColumnInfo(name = "idClass") var idClass: Int = 0,
                    @ColumnInfo(name = "idInstitution") var idInstitution: Int = 0,
-                   @ColumnInfo(name = "idSubject") var idSubject: Int = 0) {
+                   @ColumnInfo(name = "idSubject") var idSubject: Int = 0,
+                   @ColumnInfo(name = "count") var count: Int = 0,
+                   @ColumnInfo(name = "title") var title: String) {
 }
 

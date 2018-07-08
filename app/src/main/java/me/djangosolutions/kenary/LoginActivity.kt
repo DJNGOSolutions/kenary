@@ -91,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
                         updateUI(user)
                     }else{
                         Log.w(TAG,"signInWithCredential:Failure",it.exception)
-                        Snackbar.make(findViewById(R.id.main_layout),"Authentication Failed.",Snackbar.LENGTH_SHORT).show()
+                        //Snackbar.make(findViewById(R.id.main_layout),"Authentication Failed.",Snackbar.LENGTH_SHORT).show()
                         updateUI(null)
                     }
                 }
