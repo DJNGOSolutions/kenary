@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-   >
+    android:backgroundTint="@color/backTint">
 
 
     <android.support.constraint.ConstraintLayout

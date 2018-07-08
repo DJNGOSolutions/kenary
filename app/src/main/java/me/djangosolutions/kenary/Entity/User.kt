@@ -13,6 +13,7 @@ data class User(@PrimaryKey @ColumnInfo(name = "idUser") var _idUser: Int = 0,
                 @ColumnInfo(name = "UserPhoto") var UserPhoto: String = "",
                 @ColumnInfo(name = "UserName") var UserName: String = "",
                 @ColumnInfo(name = "UserAge ") var UserAge : Int = 0,
+                @ColumnInfo(name = "UserBirthday") var UserBirthday : String = "",
                 @ColumnInfo(name = "UserEmail") var UserEmail: String = "",
                 @ColumnInfo(name = "UserDescription ") var UserDescription: String = "") {
 }

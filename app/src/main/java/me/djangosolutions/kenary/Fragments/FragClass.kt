@@ -3,6 +3,7 @@ package me.djangosolutions.kenary.Fragments
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -24,8 +25,10 @@ class FragClass : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = view.findViewById<RecyclerView>(R.id.classroomrv)
-        val linearLayoutManager = LinearLayoutManager(context)
-        recyclerView!!.layoutManager = linearLayoutManager
+
+        val rv = view.findViewById<RecyclerView>(R.id.classroomrv)
+        val lManager = GridLayoutManager(this.context, 2)
+        rv!!.layoutManager = lManager
         val adapter = ClassRvAdapter(view.context, getList())
         recyclerView.adapter = adapter
     }
