@@ -1,38 +1,37 @@
 package me.djangosolutions.kenary.Adapters
 
+import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.view.PagerAdapter
+import me.djangosolutions.kenary.Fragments.FragClass
+import me.djangosolutions.kenary.Fragments.FragTuto
+import me.djangosolutions.kenary.R
 import java.util.ArrayList
 
-class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class ViewPagerAdapter(private val context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-    private val listFragment = ArrayList<Fragment>()
-    private val listTitle = ArrayList<String>()
 
-    override fun getItem(position: Int): Fragment {
-        return listFragment[position]
+    override fun getItem(position: Int): Fragment = when (position) {
+        0 -> FragClass()
+        1 -> FragTuto()
+        else -> FragClass()
     }
 
-    override fun getCount(): Int {
-        return listFragment.size
-    }
+    override fun getCount(): Int =  2
 
 
     override fun getPageTitle(position: Int): CharSequence? {
-
-        return listTitle[position]
+        return when (position) {
+            0 -> context.getString(R.string.title_class)
+            1 -> context.getString(R.string.title_tutorias)
+            else -> null
+        }
     }
 
-    fun addFragment(fragment: Fragment, title: String) {
-        listFragment.add(fragment)
-        listTitle.add(title)
+    override fun getItemPosition(`object`: Any): Int {
+        return PagerAdapter.POSITION_NONE
     }
-
-    fun setFragList(i: Int, hola: String, frag: Fragment) {
-        listTitle[i] = hola
-        listFragment[i] = frag
-    }
-
 
 }

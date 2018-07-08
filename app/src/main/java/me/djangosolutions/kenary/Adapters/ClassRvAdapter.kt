@@ -21,16 +21,12 @@ class ClassRvAdapter(private val mcontext: Context, var modelClassList: List<Mod
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val nameclass: TextView
-        val numberclass: TextView
-        val imgclass: ImageView
+        val nameclass: TextView = holder.nameclass
+        val numberclass: TextView = holder.numberclass
+        val imgclass: ImageView = holder.imgclass
 
-        nameclass = holder.nameclass
-        numberclass = holder.numberclass
-        imgclass = holder.imgclass
-
-        numberclass.setText(modelClassList[position].number)
-        nameclass.setText(modelClassList[position].name)
+        numberclass.text = modelClassList[position].number
+        nameclass.text = modelClassList[position].name
         imgclass.setImageResource(R.drawable.ic_dashboard_black_24dp)
     }
 
