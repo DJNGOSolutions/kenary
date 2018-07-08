@@ -1,59 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="368dp"
-        android:layout_height="104dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="@color/backTint"
+        android:id="@+id/appbarviewer">
 
-        <ImageView
-            android:id="@+id/imageView_class"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.428"
-            android:background="@drawable/ic_person_black_24dp" />
-
-        <TextView
-            android:id="@+id/class_title"
-            android:layout_width="wrap_content"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:text="TextView"
-            android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView_class"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/collapsingtoolbarviewer"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
+            android:fitsSystemWindows="true"
+            app:title="@string/tutor"
+            android:background="@color/backTint"
+            app:expandedTitleTextAppearance="@style/ExpandedAppBar"
+            app:collapsedTitleTextAppearance="@style/CollapsedAppBar"
+            app:toolbarId="@id/toolbarviewer">
 
-        <TextView
-            android:id="@+id/class_cat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/imageView_class"
-            app:layout_constraintTop_toBottomOf="@+id/class_title" />
-    </android.support.constraint.ConstraintLayout>
-</android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarviewer"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imageView_class"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_launcher_background"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.428" />
+
+
+                <TextView
+                    android:id="@+id/class_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_class"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/class_cat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_class"
+                    app:layout_constraintTop_toBottomOf="@+id/class_title" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/class_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/separator"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@color/backTint" />
+
+            <TextView
+                android:id="@+id/tutor_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/tutor"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator" />
+
+            <ImageView
+                android:id="@+id/separator2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tutor_class"
+                app:srcCompat="@color/backTint" />
+
+            <TextView
+                android:id="@+id/class_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/information"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/separator2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/separator2" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
