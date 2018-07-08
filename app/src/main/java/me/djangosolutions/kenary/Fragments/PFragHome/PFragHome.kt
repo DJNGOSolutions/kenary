@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import me.djangosolutions.kenary.Fragments.FragNoti
 import me.djangosolutions.kenary.R
 
 class PFragHome: Fragment() {
@@ -27,6 +29,10 @@ class PFragHome: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (type == "contents"){
             replaceFragment(PFragHomeContent())
+        }
+        val notificationButton = view.findViewById<ImageView>(R.id.imageView)
+        notificationButton.setOnClickListener {
+            replaceFragment(FragNoti())
         }
     }
 
