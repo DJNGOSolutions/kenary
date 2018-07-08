@@ -9,4 +9,5 @@
     <string name="query_hint">Search for classrooms...</string>
     <string name="tutor">Tutor</string>
     <string name="information">Information</string>
+    <string name="cat_class">Classroom category</string>
 </resources>

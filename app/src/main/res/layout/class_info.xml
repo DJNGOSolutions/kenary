@@ -62,8 +62,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="42dp"
                     android:layout_marginTop="16dp"
-                    android:text="TextView"
-                    android:textSize="24sp"
+                    android:text="@string/title_class"
+                    android:textAppearance="@style/LettersMedium24"
                     app:layout_constraintStart_toEndOf="@+id/imageView_class"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +73,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="42dp"
                     android:layout_marginTop="8dp"
-                    android:text="TextView"
+                    android:textAppearance="@style/LettersLogin14"
+                    android:text="@string/cat_class"
                     app:layout_constraintStart_toEndOf="@+id/imageView_class"
                     app:layout_constraintTop_toBottomOf="@+id/class_title" />
 
@@ -108,7 +109,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/tutor"
-                android:textSize="24sp"
+                android:textAppearance="@style/LettersLight24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/separator" />
@@ -117,8 +118,6 @@
                 android:id="@+id/separator2"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -134,6 +133,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/information"
+                android:textAppearance="@style/LettersLogin14"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/separator2"
                 app:layout_constraintStart_toStartOf="parent"

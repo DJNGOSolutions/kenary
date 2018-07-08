@@ -22,9 +22,45 @@
         <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
-    <style name="LettersLogin" parent="@android:style/TextAppearance.Small">
+    <style name="LettersLogin14" parent="@android:style/TextAppearance.Small">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">#000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+    <style name="LettersLogin20" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="Letters12sp" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+    <style name="LettersMedium14" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="LettersMedium24" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="LettersLight24" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+    <style name="LettersLightAccent24" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/roboto_light</item>
     </style>
