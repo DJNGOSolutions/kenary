@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@drawable/grad_bg"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
             android:layout_height="80dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_notifications_black_24dp" />
+            android:src="@drawable/ic_person_black_24dp" />
 
         <RelativeLayout
             android:id="@+id/layout1"
@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Login"
-                android:textAppearance="@style/ExpandedAppBar"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:textAppearance="@style/LettersLogin20"/>
 
             <LinearLayout
                 android:id="@+id/linlay1"
@@ -57,9 +58,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:textColorHint="@color/white"
-                        app:hintTextAppearance="@style/LettersLoginWhite16"
-                        app:counterTextAppearance="@style/LettersLoginWhite16"
+                        app:hintTextAppearance="@style/LettersLightAccent14"
+                        app:counterTextAppearance="@style/LettersLightAccent14"
+                        android:textColorHint="@color/colorPrimaryDark"
                         android:id="@+id/user"
                         >
                         <EditText
@@ -67,11 +68,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textEmailAddress"
-                            android:textColor="@color/white"
-                            android:textColorHint="@color/white"
-                            android:textColorHighlight="@color/white"
-                            android:textColorLink="@color/white"
-                            android:textAppearance="@style/LettersLoginWhite16"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textColorHint="@color/colorPrimaryDark"
+                            android:textColorHighlight="@color/colorPrimaryDark"
+                            android:textColorLink="@color/colorPrimaryDark"
+                            android:textAppearance="@style/LettersLightAccent16"
                             android:hint="@string/username"
                             />
                     </android.support.design.widget.TextInputLayout>
@@ -84,30 +85,35 @@
                     android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Password"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/LettersLoginWhite16" />
-
-                    <EditText
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/et_bg"
-                        android:fontFamily="sans-serif-light"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:hintTextAppearance="@style/LettersLightAccent14"
+                        app:counterTextAppearance="@style/LettersLightAccent14"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:id="@+id/pass"
+                        >
+                        <EditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textColorHint="@color/colorPrimaryDark"
+                            android:textColorHighlight="@color/colorPrimaryDark"
+                            android:textColorLink="@color/colorPrimaryDark"
+                            android:textAppearance="@style/LettersLightAccent16"
+                            android:hint="@string/password"
+                            />
+                    </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-            <Button
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -119,8 +125,7 @@
                 android:paddingRight="70dp"
                 android:text="Login Now"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textAppearance="@style/LettersLoginWhite16"/>
+                android:textAppearance="@style/LettersLightAccent16"/>
 
             <TextView
                 android:id="@+id/tv_or"
@@ -130,7 +135,7 @@
                 android:text="OR"
                 android:layout_marginTop="5dp"
                 android:layout_centerHorizontal="true"
-                android:textAppearance="@style/LettersLoginWhite16"/>
+                android:textAppearance="@style/LettersLightAccent16"/>
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
@@ -141,9 +146,8 @@
                 android:layout_marginTop="5dp"
                 android:textAllCaps="false"
                 app:buttonSize="wide"
-                android:textColor="@color/white"
-                android:textAppearance="@style/LettersLoginWhite16"
-
+                android:background="@drawable/et_bg"
+                android:textAppearance="@style/LettersLightAccent16"
                 android:visibility="visible" />
 
         </RelativeLayout>
@@ -159,24 +163,22 @@
         android:layout_marginRight="20dp"
         android:visibility="visible">
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
-            android:fontFamily="sans-serif"
             android:text="Signup Now"
             android:textAllCaps="true"
-            android:textColor="@color/white" />
+            android:textAppearance="@style/LettersLightAccent14"/>
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:background="@color/transparent"
-            android:fontFamily="sans-serif"
             android:text="Forgot Password?"
             android:textAllCaps="true"
-            android:textColor="@color/white" />
+            android:textAppearance="@style/LettersLightAccent14"/>
 
     </RelativeLayout>
 
