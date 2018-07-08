@@ -3,31 +3,31 @@ package me.djangosolutions.kenary.Repositories
 import android.app.Application
 import android.arch.lifecycle.LiveData
 import io.reactivex.Observable
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import me.djangosolutions.kenary.Database.Daos.UserDao
+import me.djangosolutions.kenary.Database.Daos.ClassDao
 import me.djangosolutions.kenary.Database.KenaryDatabase
-import me.djangosolutions.kenary.Entity.User
+import me.djangosolutions.kenary.Entity.Class
 import me.djangosolutions.kenary.Webserver.AmaiAPI
 
-class UserRepository(application: Application) {
-    var mUserDao: UserDao? = null
+class ClassRepository(application: Application) {
+    var mClassDao: ClassDao? = null
     var AmaiAPI: AmaiAPI? = null
 
     init {
         val db = KenaryDatabase.getDatabase(application)
-        mUserDao = db?.userDao()
+        mClassDao = db?.classDao()
     }
 
-    fun getAll(): LiveData<List<User>> = mUserDao!!.getAll()
+    fun getAll(): LiveData<List<Class>> = mClassDao!!.getAllClass()
 
-    fun insert(user: User){
-        CompositeDisposable().add(Observable.fromCallable { mUserDao!!.insert(user) }
+    fun getAllbyId(id: Int): LiveData<Class> = mClassDao!!.getClassById(id)
+
+    fun insert(classs: Class){
+        CompositeDisposable().add(Observable.fromCallable { mClassDao!!.insert(classs) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe())
     }
-
 }

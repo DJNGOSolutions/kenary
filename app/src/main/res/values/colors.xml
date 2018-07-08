@@ -6,5 +6,10 @@
     <color name="colorAccent">#B24419</color>
     <color name="colorAccentDark">#661F04</color>
     <color name="backTint">#f3f3f3</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="gradStart">#2BB29B</color>
+    <color name="gradStop">#006655</color>
 </resources>
 

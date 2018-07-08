@@ -7,9 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import me.djangosolutions.kenary.Adapters.ClassRvAdapter
 import me.djangosolutions.kenary.Adapters.NotiRvAdapter
-import me.djangosolutions.kenary.Models.ModelClass
 import me.djangosolutions.kenary.Models.ModelNoti
 import me.djangosolutions.kenary.R
 import java.util.ArrayList

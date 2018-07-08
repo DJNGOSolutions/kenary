@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import me.djangosolutions.kenary.Entity.Tutorial
 import me.djangosolutions.kenary.R
-import me.djangosolutions.kenary.Models.ModelTuto
 
-class TutoRvAdapter(private val mcontext: Context, var modelTutoList: List<ModelTuto>) : RecyclerView.Adapter<TutoRvAdapter.ViewHolder>() {
+class TutoRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<TutoRvAdapter.ViewHolder>() {
 
     private var inflater: LayoutInflater? = null
+    private var mTutorial: List<Tutorial>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         inflater = LayoutInflater.from(mcontext)
@@ -21,28 +22,21 @@ class TutoRvAdapter(private val mcontext: Context, var modelTutoList: List<Model
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val nametuto: TextView
-        val imgtuto: ImageView
-        nametuto = holder.nametuto
-        imgtuto = holder.imgtuto
-        nametuto.setText(modelTutoList[position].name)
+        val nametuto: TextView = holder.nametuto
+        val imgtuto: ImageView = holder.imgtuto
+        nametuto.text = mTutorial!![position].title
         imgtuto.setImageResource(R.drawable.ic_dashboard_black_24dp)
     }
 
-    override fun getItemCount(): Int {
-        return if (modelTutoList.isEmpty()) {
-            0
-        } else modelTutoList.size
+    override fun getItemCount(): Int = if (mTutorial == null) 0 else mTutorial!!.size
+
+    fun setTutorial(tutorial: List<Tutorial>){
+        mTutorial = tutorial
+        notifyDataSetChanged()
     }
 
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        internal var nametuto: TextView
-        internal var imgtuto: ImageView
-
-        init {
-            nametuto = itemView.findViewById(R.id.nametuto)
-            imgtuto = itemView.findViewById(R.id.imgtuto)
-        }
+        internal var nametuto: TextView = itemView.findViewById(R.id.nametuto)
+        internal var imgtuto: ImageView = itemView.findViewById(R.id.imgtuto)
     }
 }
