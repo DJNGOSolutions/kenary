@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "444079841493",
+    "firebase_url": "https://kenary-06d18.firebaseio.com",
+    "project_id": "kenary-06d18",
+    "storage_bucket": "kenary-06d18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444079841493:android:226c796ee2d55634",
+        "android_client_info": {
+          "package_name": "me.djangosolutions.kenary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444079841493-bj41ibm220ul3lj1aab7qvp27i1ta5lq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.djangosolutions.kenary",
+            "certificate_hash": "253148f2a83fe3502db55ebc91daa59c435ed4a1"
+          }
+        },
+        {
+          "client_id": "444079841493-0nd51l21v46l0eo1cnk1dsp17i5flou7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9UW1NsWxP91souCcZj1weHAjpe5RITB4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444079841493-0nd51l21v46l0eo1cnk1dsp17i5flou7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
