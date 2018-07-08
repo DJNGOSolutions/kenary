@@ -10,15 +10,16 @@ import me.djangosolutions.kenary.Adapters.TutoRvAdapter
 import me.djangosolutions.kenary.R
 
 class PFragProfile : Fragment() {
-    private var v: View? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        v = inflater.inflate(R.layout.profile, container, false)
-        return v
+        return inflater.inflate(R.layout.profile, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
     }
 }

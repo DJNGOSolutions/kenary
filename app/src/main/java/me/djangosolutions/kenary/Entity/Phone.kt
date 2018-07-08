@@ -6,6 +6,5 @@ import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "phone_table")
 data class Phone(@PrimaryKey @ColumnInfo(name = "idUser") var idUser: Int = 0,
-                        @ColumnInfo(name = "idPhonexUser") var idPhonexUser: Int = 0,
                         @ColumnInfo(name = "Phone") var Phone: String = "") {
 }

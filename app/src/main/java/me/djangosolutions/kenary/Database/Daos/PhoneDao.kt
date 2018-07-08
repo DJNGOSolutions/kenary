@@ -13,10 +13,6 @@ interface PhoneDao {
     @Query("SELECT * FROM phone_table")
     fun getAllPhone(): LiveData<List<Phone>>
 
-    @Query("SELECT * FROM phone_table Where idPhonexUser = :idPhonexUser")
-    fun getPhoneById(idPhonexUser: Int)  : LiveData<Phone>
-
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(phone: Phone)
 
