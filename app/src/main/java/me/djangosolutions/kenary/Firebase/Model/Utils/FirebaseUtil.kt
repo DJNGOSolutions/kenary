@@ -27,10 +27,10 @@ object FirebaseUtil {
         }
     }
 
-    fun updateCurrentUser(name:String ="",bio:String="",email:String="", profilePicPath:String? = null){
+    fun updateCurrentUser(name:String ="",institution:String="",email:String="", profilePicPath:String? = null){
         val userFieldMap = mutableMapOf<String,Any>()
         if(name.isNotBlank()) userFieldMap["name"] = name
-        if(bio.isNotBlank()) userFieldMap["bio"] = bio
+        if(institution.isNotBlank()) userFieldMap["bio"] = institution
         if(email.isNotBlank()) userFieldMap["email"] = email
         if(profilePicPath != null)
             userFieldMap["profilePicPath"] = profilePicPath
