@@ -16,7 +16,7 @@
         android:layout_height="92dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageclass"
+            android:id="@+id/imagenoti"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginBottom="2dp"
@@ -31,7 +31,7 @@
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/numberclass"
+            android:id="@+id/notifications"
             android:layout_width="185dp"
             android:layout_height="57dp"
             android:layout_marginLeft="24dp"
@@ -42,7 +42,7 @@
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/nameclass"
+            android:id="@+id/datenoti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
