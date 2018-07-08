@@ -13,8 +13,8 @@ interface ClassDao {
     @Query("SELECT * FROM class_table")
     fun getAllClass(): LiveData<List<Class>>
 
-    @Query("SELECT * FROM class_table Where idClass = :idClass")
-    fun getClassById(idClass: Int)  : LiveData<Class>
+    @Query("SELECT * FROM class_table WHERE idClass = :idClass")
+    fun getClassById(idClass: Int) : LiveData<Class>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(Class:Class)

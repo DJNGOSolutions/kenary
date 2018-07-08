@@ -9,7 +9,7 @@ import me.djangosolutions.kenary.Entity.Subject
 
 
 @Dao
-interface SubjetDao {
+interface SubjectDao {
     @Query("SELECT * FROM subject_table")
     fun getAllSuject(): LiveData<List<Subject>>
 

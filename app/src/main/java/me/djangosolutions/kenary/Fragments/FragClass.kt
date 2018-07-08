@@ -15,28 +15,19 @@ import me.djangosolutions.kenary.R
 
 
 class FragClass : Fragment() {
-    private var v: View? = null
-    private var recyclerView: RecyclerView? = null
-
     var list: List<ModelClass>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        v = inflater.inflate(R.layout.classrooms, container, false)
-
-
-
-
-        return v
+        return inflater.inflate(R.layout.classrooms, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = v!!.findViewById(R.id.classroomrv)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.classroomrv)
         val linearLayoutManager = LinearLayoutManager(context)
         recyclerView!!.layoutManager = linearLayoutManager
         val adapter = ClassRvAdapter(view.context, getList())
-        recyclerView!!.adapter = adapter
+        recyclerView.adapter = adapter
     }
 
     fun getList(): ArrayList<ModelClass> {
