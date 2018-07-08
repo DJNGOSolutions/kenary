@@ -15,19 +15,16 @@ import me.djangosolutions.kenary.R
 import java.util.ArrayList
 
 class FragNoti : Fragment() {
-    private var v: View? = null
     private var recyclerView: RecyclerView? = null
-
     var list: List<ModelNoti>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        v = inflater.inflate(R.layout.notifications, container, false)
-        return v
+        return inflater.inflate(R.layout.notifications, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = v!!.findViewById(R.id.notificationrv)
+        recyclerView = view.findViewById(R.id.notificationrv)
         val linearLayoutManager = LinearLayoutManager(context)
         recyclerView!!.layoutManager = linearLayoutManager
         val adapter = NotiRvAdapter(view.context, getList())
@@ -35,7 +32,6 @@ class FragNoti : Fragment() {
     }
 
     fun getList(): ArrayList<ModelNoti> {
-        //Aqui deberia ir la funcion que obtendra la lista de class rooms
         val list = ArrayList<ModelNoti>()
         list.add(ModelNoti("Tu solicitud de tutoria para Ciencias de los Materiales ha sido aceptada", "16 jun"))
         list.add(ModelNoti("Tu solicitud de tutoria para Calculo ha sido aceptada", "16 jun"))
