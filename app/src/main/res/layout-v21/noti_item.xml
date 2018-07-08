@@ -32,25 +32,31 @@
 
         <TextView
             android:id="@+id/notifications"
-            android:layout_width="185dp"
-            android:layout_height="57dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="Tu tutoria ha sido aceptada"
-            card_view:layout_constraintStart_toEndOf="@+id/imageclass"
-            card_view:layout_constraintTop_toTopOf="parent" />
+            card_view:layout_constraintBottom_toBottomOf="@+id/imagenoti"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
+            card_view:layout_constraintStart_toEndOf="@+id/imagenoti"
+            card_view:layout_constraintTop_toTopOf="@+id/imagenoti"
+            card_view:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/datenoti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
             android:text="Date"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent" />
+            card_view:layout_constraintEnd_toEndOf="@+id/notifications"
+            card_view:layout_constraintHorizontal_bias="1.0"
+            card_view:layout_constraintStart_toStartOf="@+id/notifications"
+            card_view:layout_constraintTop_toBottomOf="@+id/notifications" />
 
 
     </android.support.constraint.ConstraintLayout>
