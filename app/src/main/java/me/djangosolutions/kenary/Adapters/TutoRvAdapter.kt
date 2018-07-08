@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import me.djangosolutions.kenary.Entity.Tutorial
 import me.djangosolutions.kenary.R
-import me.djangosolutions.kenary.Models.ModelTuto
 
 class TutoRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<TutoRvAdapter.ViewHolder>() {
 

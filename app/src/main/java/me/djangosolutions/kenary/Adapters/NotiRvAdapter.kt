@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import me.djangosolutions.kenary.Models.ModelClass
 import me.djangosolutions.kenary.Models.ModelNoti
-import me.djangosolutions.kenary.Models.ModelTuto
 import me.djangosolutions.kenary.R
 
 class NotiRvAdapter(private val mcontext: Context, var modelNotiList: List<ModelNoti>) : RecyclerView.Adapter<NotiRvAdapter.ViewHolder>() {

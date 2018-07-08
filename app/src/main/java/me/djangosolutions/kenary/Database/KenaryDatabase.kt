@@ -8,8 +8,6 @@ import android.content.Context
 import android.os.AsyncTask
 import me.djangosolutions.kenary.Database.Daos.*
 import me.djangosolutions.kenary.Entity.*
-import me.djangosolutions.kenary.Models.ModelClass
-import me.djangosolutions.kenary.Models.ModelTuto
 import java.util.ArrayList
 
 @Database(entities = [(AcademicLevel::class), (Assistance::class), (City::class), (Class::class), (Gender::class), (Institution::class), (Phone::class), (Place::class), (Product::class), (Rate::class), (Role::class), (Session::class), (State::class), (Study::class), (Subject::class), (SubjectTopic::class), (Topic::class), (Tutorial::class), (TypePayment::class), (TypeSession::class), (User::class)], version = 3)
