@@ -18,6 +18,10 @@ import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*
+import me.djangosolutions.kenary.Firebase.Model.Utils.FirebaseUtil
+import org.jetbrains.anko.clearTask
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.newTask
 
 class LoginActivity : AppCompatActivity() {
     companion object {
@@ -45,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
         val signIn = findViewById<View>(R.id.sign_in_button) as SignInButton
         //val signOut = findViewById<View>(R.id.sign_out_button) as Button
         //val revokeAccess = findViewById<View>(R.id.disconnect_button)
-        signIn.setSize(SignInButton.SIZE_STANDARD)
+        signIn.setSize(SignInButton.SIZE_WIDE)
 
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -122,14 +126,17 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?){
         if(user != null){
-           // mStatusTextView.text = getString(R.string.google_status_fmt,user.email)
+            // mStatusTextView.text = getString(R.string.google_status_fmt,user.email)
             //mDetailTextView.text = getString(R.string.firebase_status_fmt,user.uid)
             //findViewById<SignInButton>(R.id.sign_in_button).visibility = View.GONE
             //findViewById<LinearLayout>(R.id.sign_out_and_disconnect).visibility = View.VISIBLE
+            FirebaseUtil.initCurrentUserIfFirstTime {
+                startActivity(intentFor<MainActivity>().newTask().clearTask())
+            }
         }else{
-          //  mStatusTextView.text = getString(R.string.signed_out)
-           // mDetailTextView.text = null
-           // findViewById<SignInButton>(R.id.sign_in_button).visibility = View.VISIBLE
+            //  mStatusTextView.text = getString(R.string.signed_out)
+            // mDetailTextView.text = null
+            // findViewById<SignInButton>(R.id.sign_in_button).visibility = View.VISIBLE
             //findViewById<LinearLayout>(R.id.sign_out_and_disconnect).visibility = View.GONE
         }
     }
