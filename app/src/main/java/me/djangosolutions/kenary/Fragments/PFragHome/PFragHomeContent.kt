@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import me.djangosolutions.kenary.Adapters.ViewPagerAdapter
 import me.djangosolutions.kenary.R
 
 class PFragHomeContent: Fragment() {
@@ -23,6 +24,8 @@ class PFragHomeContent: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val tablayout = view.findViewById<TabLayout>(R.id.tabLayout)
         val viewpager = view.findViewById<ViewPager>(R.id.viewPager)
+        val adapter = ViewPagerAdapter(view.context,childFragmentManager)
+        viewpager.adapter = adapter
         tablayout.setupWithViewPager(viewpager)
     }
 }
