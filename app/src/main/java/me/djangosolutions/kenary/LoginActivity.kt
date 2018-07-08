@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
         val signIn = findViewById<View>(R.id.sign_in_button) as SignInButton
         //val signOut = findViewById<View>(R.id.sign_out_button) as Button
         //val revokeAccess = findViewById<View>(R.id.disconnect_button)
-        signIn.setSize(SignInButton.SIZE_STANDARD)
+        signIn.setSize(SignInButton.SIZE_WIDE)
 
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
