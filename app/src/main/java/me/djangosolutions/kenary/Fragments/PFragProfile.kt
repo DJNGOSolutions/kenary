@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import me.djangosolutions.kenary.Adapters.TutoRvAdapter
+import me.djangosolutions.kenary.Fragments.PFragHome.PFragHome
+import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContent
 import me.djangosolutions.kenary.R
 
 class PFragProfile : Fragment() {
@@ -21,5 +23,12 @@ class PFragProfile : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        replaceFragment(PFragHomeContent())
+    }
+
+    fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = fragmentManager!!.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_profile, fragment)
+        fragmentTransaction.commit()
     }
 }
