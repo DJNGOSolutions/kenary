@@ -34,6 +34,7 @@
         android:background="@drawable/ic_notifications_black_24dp" />
 
     <FrameLayout
+        android:id="@+id/frame_main_home"
         android:layout_width="0dp"
         android:layout_height="0dp" />
 
