@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import me.djangosolutions.kenary.Fragments.PFragCal
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHome
+import me.djangosolutions.kenary.Fragments.PFragProfile
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_messages ->{
                 return@OnNavigationItemSelectedListener true}
             R.id.navigation_profile ->{
+                replaceFragment(PFragProfile())
                 return@OnNavigationItemSelectedListener true}
         }
         false
