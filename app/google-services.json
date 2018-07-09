@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "444079841493-5ku38dd60q8ek05lpr1abaac5bia63eb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.djangosolutions.kenary",
+            "certificate_hash": "10cae088748daed207523412ad49d01b76f55273"
+          }
+        },
+        {
           "client_id": "444079841493-0nd51l21v46l0eo1cnk1dsp17i5flou7.apps.googleusercontent.com",
           "client_type": 3
         }

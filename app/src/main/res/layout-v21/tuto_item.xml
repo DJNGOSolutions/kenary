@@ -21,13 +21,13 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         >
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:id="@+id/imgtuto"
             android:layout_marginLeft="4dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_notifications_black_24dp"
+            android:src="@color/colorPrimary"
             />
 
         <TextView
@@ -35,11 +35,12 @@
             android:layout_height="match_parent"
             android:layout_weight="9"
             android:id="@+id/nametuto"
+            android:paddingLeft="5dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:gravity="center_vertical"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:text="vacil"/>
+            android:textAppearance="@style/LettersLogin20"
+            android:text="@string/title_tuto"/>
 
 
     </LinearLayout>

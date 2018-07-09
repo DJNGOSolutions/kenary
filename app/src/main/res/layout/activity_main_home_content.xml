@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:tabSelectedTextColor="@color/colorAccent"
-        app:tabTextAppearance="@style/LettersMedium14"
+        app:tabTextAppearance="@style/LettersMediumNon14"
         android:background="@drawable/rounded_corners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
             android:id="@+id/tuto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_tutorias" />
+            android:text="@string/title_tuto" />
     </android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager
