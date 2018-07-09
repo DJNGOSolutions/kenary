@@ -47,18 +47,14 @@
 
         <TextView
             android:id="@+id/nameclass"
-            android:layout_width="139dp"
-            android:layout_height="38dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:text="@string/app_name"
             android:textAppearance="@style/Letters12sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toEndOf="@+id/imageclass"
             card_view:layout_constraintTop_toBottomOf="@+id/numberclass"
             card_view:layout_constraintVertical_bias="0.225" />
