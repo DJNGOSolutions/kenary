@@ -24,9 +24,7 @@ class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<Class
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nameclass: TextView = holder.nameclass
-        val numberclass: TextView = holder.numberclass
         val imgclass: ImageView = holder.imgclass
-        numberclass.text = mClass!![position].count.toString() + " Disponibles"
         nameclass.text = mClass!![position].title
         imgclass.setImageResource(R.drawable.ic_dashboard_black_24dp)
         holder.cardview.setOnClickListener {
@@ -43,8 +41,7 @@ class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<Class
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal var cardview: CardView = itemView.findViewById(R.id.cardView)
-        internal var numberclass: TextView = itemView.findViewById(R.id.numberclass)
-        internal var nameclass: TextView = itemView.findViewById(R.id.nameclass)
-        internal var imgclass: ImageView = itemView.findViewById(R.id.imageclass)
+        internal var nameclass: TextView = itemView.findViewById(R.id.catname)
+        internal var imgclass: ImageView = itemView.findViewById(R.id.imagecat)
     }
 }
