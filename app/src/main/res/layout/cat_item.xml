@@ -26,8 +26,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="2dp"
-            android:contentDescription="@string/title_class"
             android:background="@drawable/ic_notifications_black_24dp"
+            android:contentDescription="@string/title_class"
             card_view:civ_border_color="@color/backTint"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -35,33 +35,29 @@
 
         <TextView
             android:id="@+id/numberclass"
-            android:layout_width="wrap_content"
-            android:layout_height="19dp"
-            android:textAppearance="@style/LettersMedium14"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/title_class"
-            card_view:layout_constraintStart_toEndOf="@+id/imageclass"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/nameclass"
-            android:layout_width="139dp"
-            android:layout_height="38dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="83dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:text="@string/app_name"
-            android:textAppearance="@style/Letters12sp"
+            android:ellipsize="end"
+            android:lines="3"
+            android:text="Este es un tema bien largo para ver como se comporta lol"
+            android:textAlignment="center"
+            android:textAppearance="@style/LettersMedium14"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.0"
-            card_view:layout_constraintStart_toEndOf="@+id/imageclass"
-            card_view:layout_constraintTop_toBottomOf="@+id/numberclass"
-            card_view:layout_constraintVertical_bias="0.225" />
+            card_view:layout_constraintEnd_toStartOf="@+id/guideline"
+            card_view:layout_constraintHorizontal_bias="0.555"
+            card_view:layout_constraintStart_toEndOf="@+id/imageclass" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            card_view:layout_constraintGuide_percent="0.5" />
 
 
     </android.support.constraint.ConstraintLayout>
