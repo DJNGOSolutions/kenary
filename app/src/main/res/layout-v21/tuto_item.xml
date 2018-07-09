@@ -35,11 +35,12 @@
             android:layout_height="match_parent"
             android:layout_weight="9"
             android:id="@+id/nametuto"
+            android:paddingLeft="5dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:gravity="center_vertical"
             android:textAppearance="@style/LettersLogin20"
-            android:text="vacil"/>
+            android:text="@string/title_tuto"/>
 
 
     </LinearLayout>

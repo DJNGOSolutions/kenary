@@ -20,6 +20,7 @@
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:background="@drawable/rounded_corners"
         >
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="32dp"
@@ -34,12 +35,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9"
+            android:paddingLeft="5dp"
             android:id="@+id/nametuto"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:gravity="center_vertical"
             android:textAppearance="@style/LettersLogin20"
-            android:text="vacil"/>
+            android:text="@string/title_tuto"/>
 
 
     </LinearLayout>
