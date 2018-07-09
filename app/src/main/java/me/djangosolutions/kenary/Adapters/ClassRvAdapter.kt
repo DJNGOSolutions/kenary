@@ -1,6 +1,7 @@
 package me.djangosolutions.kenary.Adapters
 
 import android.content.Context
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -25,9 +26,12 @@ class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<Class
         val nameclass: TextView = holder.nameclass
         val numberclass: TextView = holder.numberclass
         val imgclass: ImageView = holder.imgclass
-        numberclass.text = mClass!![position].count.toString() + " Classrooms"
+        numberclass.text = mClass!![position].count.toString() + " Disponibles"
         nameclass.text = mClass!![position].title
         imgclass.setImageResource(R.drawable.ic_dashboard_black_24dp)
+        holder.cardview.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int = if (mClass == null) 0  else mClass!!.size
@@ -38,6 +42,7 @@ class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<Class
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        internal var cardview: CardView = itemView.findViewById(R.id.cardView)
         internal var numberclass: TextView = itemView.findViewById(R.id.numberclass)
         internal var nameclass: TextView = itemView.findViewById(R.id.nameclass)
         internal var imgclass: ImageView = itemView.findViewById(R.id.imageclass)
