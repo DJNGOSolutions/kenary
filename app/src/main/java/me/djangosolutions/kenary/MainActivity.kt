@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
     var searchBar: SearchView? = null
     var navigationBottom: BottomNavigationView? = null
 
+    companion object{
+        var token: String = ""
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
