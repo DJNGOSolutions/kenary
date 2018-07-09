@@ -1,11 +1,14 @@
 package me.djangosolutions.kenary.Firebase.Model.Utils
 
 import android.content.Context
+import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
+import com.xwray.groupie.kotlinandroidextensions.Item
 import me.djangosolutions.kenary.Firebase.Model.UserM
 
 object FirebaseUtil {
@@ -45,5 +48,23 @@ object FirebaseUtil {
                 }
     }
 
-    fun addUserListener(context:Context, onListen: (List<Item>))
+    fun addUserListener(context:Context, onListen: (List<Item>) -> Unit):ListenerRegistration{
+        return firestoreInstance.collection("users")
+                .addSnapshotListener{querySnapshot, firebaseFirestoreException ->
+                    if(firebaseFirestoreException != null) {
+                        Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                        return@addSnapshotListener
+                    }
+                    val items = mutableListOf<Item>()
+                    querySnapshot?.documents?.forEach{
+                        if(it.id != FirebaseAuth.getInstance().currentUser?.uid){
+                            //TODO
+                            //items.add(PersonItem(it.toObject(User::class.java),it.id,context))
+                        }
+                    }
+                    onListen(items)
+                }
+    }
+
+    fun  removeListener(registration: ListenerRegistration) = registration.remove()
 }
