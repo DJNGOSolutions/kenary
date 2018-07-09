@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:tabSelectedTextColor="@color/colorAccent"
-        app:tabTextAppearance="@style/LettersMedium14"
+        app:tabTextAppearance="@style/LettersMediumNon14"
         android:background="@drawable/rounded_corners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
