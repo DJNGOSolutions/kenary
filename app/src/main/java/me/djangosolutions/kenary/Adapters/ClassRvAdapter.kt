@@ -17,7 +17,7 @@ class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<Class
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         inflater = LayoutInflater.from(mcontext)
-        val view = inflater!!.inflate(R.layout.class_item, parent, false)
+        val view = inflater!!.inflate(R.layout.cat_item, parent, false)
         return ViewHolder(view)
     }
 

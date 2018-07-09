@@ -26,8 +26,6 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_calendar ->{
                 replaceFragment(PFragCal())
                 return@OnNavigationItemSelectedListener true}
-            R.id.navigation_messages ->{
-                return@OnNavigationItemSelectedListener true}
             R.id.navigation_profile ->{
                 replaceFragment(PFragProfile())
                 return@OnNavigationItemSelectedListener true}

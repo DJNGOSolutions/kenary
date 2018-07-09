@@ -25,7 +25,7 @@ class ViewPagerAdapter(private val context: Context, fm: FragmentManager) : Frag
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
             0 -> context.getString(R.string.title_class)
-            1 -> context.getString(R.string.title_tutorias)
+            1 -> context.getString(R.string.title_tuto)
             else -> null
         }
     }
