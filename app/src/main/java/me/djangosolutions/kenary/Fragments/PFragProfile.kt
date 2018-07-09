@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import me.djangosolutions.kenary.glide.GlideApp
 import com.google.android.gms.signin.SignIn
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.profile.*
@@ -28,6 +29,7 @@ import org.jetbrains.anko.clearTask
 import org.jetbrains.anko.newTask
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.intentFor
+import org.jetbrains.anko.support.v4.toast
 import java.io.ByteArrayOutputStream
 
 class PFragProfile : Fragment() {
@@ -57,18 +59,19 @@ class PFragProfile : Fragment() {
                 if(::selectedImageBytes.isInitialized){
                     StorageUtil.uploadProfilePhoto(selectedImageBytes){imagePath ->
                         FirebaseUtil.updateCurrentUser(display_name.text.toString(),
-                                institution_text.toString(),
-                                email_text.toString(),
+                                institution_text.text.toString(),
+                                email_text.text.toString(),
                                 imagePath
                                 )
                     }
                 }else{
                     FirebaseUtil.updateCurrentUser(display_name.text.toString(),
-                            institution_text.toString(),
-                            email_text.toString(),
+                            institution_text.text.toString(),
+                            email_text.text.toString(),
                             null
                     )
                 }
+                toast("Saving")
             }
             sign_out_profile.setOnClickListener {
                 FirebaseAuth.getInstance().signOut()
@@ -96,8 +99,7 @@ class PFragProfile : Fragment() {
             val outputStream = ByteArrayOutputStream()
             selectedImageBmp.compress(Bitmap.CompressFormat.JPEG,90,outputStream)
             selectedImageBytes = outputStream.toByteArray()
-            //TODO: load picture
-            Glide.with(this)
+            GlideApp.with(this)
                     .load(selectedImageBytes)
                     .into(profile_image)
             pictureJustChanged = true
@@ -110,10 +112,11 @@ class PFragProfile : Fragment() {
             if(this@PFragProfile.isVisible){
                 display_name.setText(userM.diplayName)
                 email_text.setText(userM.email)
-                institution_text.setText(userM.email)
+                institution_text.setText(userM.institution)
                 if(!pictureJustChanged && userM.profilePicPath != null){
-                    Glide.with(this)
+                    GlideApp.with(this)
                             .load(StorageUtil.pathToReference(userM.profilePicPath))
+                            .placeholder(R.drawable.ic_person_black_24dp)
                             .into(profile_image)
                 }
             }
