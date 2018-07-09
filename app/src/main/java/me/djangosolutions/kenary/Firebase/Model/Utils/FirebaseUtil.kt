@@ -1,5 +1,6 @@
 package me.djangosolutions.kenary.Firebase.Model.Utils
 
+import android.content.Context
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
@@ -10,7 +11,7 @@ import me.djangosolutions.kenary.Firebase.Model.UserM
 object FirebaseUtil {
     private val firestoreInstance:FirebaseFirestore by lazy{FirebaseFirestore.getInstance()}
     private val currentUserDocRef:DocumentReference
-        get() = firestoreInstance.document("users/${FirebaseAuth.getInstance().uid
+        get() = firestoreInstance.document("users/${FirebaseAuth.getInstance().currentUser?.uid
                 ?: throw NullPointerException("UID is null.")}")
     fun initCurrentUserIfFirstTime(onComplete: () -> Unit){
         currentUserDocRef.get().addOnSuccessListener { documentSnapshot ->
@@ -43,4 +44,6 @@ object FirebaseUtil {
                     onComplete(it.toObject(UserM::class.java)!!)
                 }
     }
+
+    fun addUserListener(context:Context, onListen: (List<Item>))
 }
