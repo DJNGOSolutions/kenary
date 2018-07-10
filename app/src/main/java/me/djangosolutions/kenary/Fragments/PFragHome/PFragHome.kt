@@ -2,12 +2,14 @@ package me.djangosolutions.kenary.Fragments.PFragHome
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import me.djangosolutions.kenary.Fragments.FragNoti
 import me.djangosolutions.kenary.R
+import me.djangosolutions.kenary.util.amaiiService
 
 class PFragHome: Fragment() {
 
