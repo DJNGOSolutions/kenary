@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "gender_table")
-data class Gender(@PrimaryKey @ColumnInfo(name = "idGender_User") var idGender_User: Int = 0,
+data class Gender(@PrimaryKey @ColumnInfo(name = "idGender_User") var IdGender_User: Int = 0,
                    @ColumnInfo(name = "Gender") var Gender: String = "") {
 }
 

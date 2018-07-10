@@ -4,7 +4,7 @@ import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
-@Entity(tableName = "table_user")
+@Entity(tableName = "user_table")
 data class User(@PrimaryKey @ColumnInfo(name = "idUser") var _idUser: Int = 0,
                 @ColumnInfo(name = "idGenderUser ") var idGenderUser : Int = 0,
                 @ColumnInfo(name = "idAcademicLevelUser") var idAcademicLevelUser: Int = 0,

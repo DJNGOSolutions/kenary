@@ -5,6 +5,6 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "phone_table")
-data class Phone(@PrimaryKey @ColumnInfo(name = "idUser") var idUser: Int = 0,
+data class Phone(@PrimaryKey @ColumnInfo(name = "idUser") var IdUser: Int = 0,
                         @ColumnInfo(name = "Phone") var Phone: String = "") {
 }
