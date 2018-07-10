@@ -1,0 +1,108 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solicita una tutoria"
+            android:textSize="24sp"
+            android:textColor="@color/white"/>
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/android_material_design_spinnerCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Categoria"
+            android:textAlignment="center"
+            android:textColorHint="#ffffff"
+            app:met_floatingLabel="normal" />
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/android_material_design_spinnerSubj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tema"
+            android:textAlignment="center"
+            android:textColorHint="#ffffff"
+            app:met_floatingLabel="normal" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/android_material_design_spinnerH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="HH"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textColorHint="#ffffff"
+                app:met_floatingLabel="normal" />
+
+            <!--
+           String[] SPINNERLIST = {"0","1","Funcion para llenar hasta 12..."};
+           -->
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/android_material_design_spinnerM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="MM"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textColorHint="#ffffff"
+                app:met_floatingLabel="normal" />
+
+            <!--
+            String[] SPINNERLIST = {"0","1","Funcion para llenar hasta 59..."};
+            -->
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/android_material_design_spinnerT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="AM/PM"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textColorHint="#ffffff"
+                app:met_floatingLabel="normal" />
+
+            <!--
+            String[] SPINNERLIST = {"PM","AM"};
+            -->
+
+
+        </LinearLayout>
+
+
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/display_share"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:sr="@color/colorAccent"
+            android:padding="10dp"
+            android:tint="#fff"
+            android:src="@drawable/add"
+            android:text=""/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
