@@ -16,4 +16,6 @@ class UserViewModel(application: Application): AndroidViewModel(application){
     fun getAll(): LiveData<List<User>> = mRepository!!.getAll()
 
     fun insert(user: User) = mRepository!!.insert(user)
+
+    fun putUp2Date(email: String, password: String) = mRepository!!.getToken(email, password)
 }

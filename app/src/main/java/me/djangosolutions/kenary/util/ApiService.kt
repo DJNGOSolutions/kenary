@@ -21,4 +21,4 @@ private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-internal val gameNewsService = retrofit.create(AmaiService::class.java)
+internal val amaiiService = retrofit.create(AmaiService::class.java)
