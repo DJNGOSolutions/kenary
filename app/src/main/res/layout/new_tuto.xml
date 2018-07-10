@@ -98,7 +98,6 @@
             android:layout_height="64dp"
             android:sr="@color/colorAccent"
             android:padding="10dp"
-            android:tint="#fff"
             android:src="@drawable/add"
             android:text=""/>
 
