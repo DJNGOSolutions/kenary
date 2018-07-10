@@ -17,7 +17,7 @@ interface AmaiService {
     fun login(@Path("email") email: String, @Path("pass") password: String): Call<String>
 
     @POST("/find/user")
-    fun getUser(@Field("email") email: String): Call<Model.User>
+    fun getUser(@Field("token") token: String): Call<Model.User>
 
     @GET("/subjects")
     fun getSubjects() : Call<List<Model.Subject>>
