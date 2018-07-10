@@ -10,6 +10,8 @@ import me.djangosolutions.kenary.Database.Daos.SubjectDao
 import me.djangosolutions.kenary.Database.KenaryDatabase
 import me.djangosolutions.kenary.Entity.Subject
 import me.djangosolutions.kenary.Webserver.AmaiAPI
+import me.djangosolutions.kenary.util.amaiiService
+import org.jetbrains.anko.doAsync
 
 class SubjectRepository (application: Application){
     var mSubjectDao: SubjectDao? = null
@@ -25,9 +27,15 @@ class SubjectRepository (application: Application){
     fun getAllbyId(id: Int): LiveData<Subject> = mSubjectDao!!.getSubjectById(id)
 
     fun insert(subject: Subject){
-        CompositeDisposable().add(Observable.fromCallable { mSubjectDao!!.insert(subject)}
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe())
+        doAsync {
+            mSubjectDao!!.insert(subject)
+        }
+    }
+
+    fun getSubjects(){
+        doAsync {
+            val subject = amaiiService.getSubjects().execute().body()!!
+            insert(Subject())
+        }
     }
 }

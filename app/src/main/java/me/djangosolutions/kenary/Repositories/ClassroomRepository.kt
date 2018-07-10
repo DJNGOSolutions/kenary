@@ -12,6 +12,8 @@ import me.djangosolutions.kenary.Database.KenaryDatabase
 import me.djangosolutions.kenary.Entity.Category
 import me.djangosolutions.kenary.Entity.Classroom
 import me.djangosolutions.kenary.Webserver.AmaiAPI
+import me.djangosolutions.kenary.util.amaiiService
+import org.jetbrains.anko.doAsync
 
 /**
  * Created by Marcelo on 09/07/2018.
@@ -30,9 +32,15 @@ class ClassroomRepository(application: Application) {
     fun getAllbyId(id: Int): LiveData<Classroom> = mClassroomDao!!.getClassroomById(id)
 
     fun insert(classroom: Classroom){
-        CompositeDisposable().add(Observable.fromCallable { mClassroomDao!!.insert(classroom) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe())
+        doAsync {
+            mClassroomDao!!.insert(classroom)
+        }
+    }
+
+    fun getClassrooms(){
+        doAsync {
+            val classroom = amaiiService.getClassrooms().execute().body()!!
+            insert(Classroom())
+        }
     }
 }
