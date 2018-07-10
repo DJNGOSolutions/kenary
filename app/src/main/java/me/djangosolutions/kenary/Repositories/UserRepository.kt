@@ -24,17 +24,15 @@ class UserRepository(private var application: Application) {
 
     init {
         val db = KenaryDatabase.getDatabase(application)
-
         mUserDao = db?.userDao()
     }
 
     fun getAll(): LiveData<List<User>> = mUserDao!!.getAll()
 
     fun insert(user: User){
-        CompositeDisposable().add(Observable.fromCallable { mUserDao!!.insert(user) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe())
+        doAsync {
+            mUserDao!!.insert(user)
+        }
     }
 
     fun insertSharedPref(token: String){
@@ -50,5 +48,13 @@ class UserRepository(private var application: Application) {
        insertSharedPref(amaiiService.login(email, password).execute().body()!!)}.subscribeOn(Schedulers.io())
                .observeOn(AndroidSchedulers.mainThread())
                .subscribe())
+    }
+
+    fun getUser(token: String){
+        doAsync {
+            val user = amaiiService.getUser(token).execute().body()!!
+            insert(User(user.Id!!))
+            //TODO:Terminar de insertar datos
+        }
     }
 }
