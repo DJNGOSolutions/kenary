@@ -41,8 +41,9 @@ abstract class KenaryDatabase: RoomDatabase(){
     abstract fun classDao(): ClassDao
     abstract fun genderDao(): GenderDao
     abstract fun institutionDao(): InstitutionDao
+    abstract fun placeDao(): PlaceDao
     abstract fun phoneDao(): PhoneDao
-    abstract fun rateDao(): PlaceDao
+    abstract fun rateDao(): RateDao
     abstract fun roleDao(): RoleDao
     abstract fun sessionDao(): SessionDao
     abstract fun stateDao(): StateDao

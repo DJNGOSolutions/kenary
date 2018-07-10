@@ -13,6 +13,7 @@ class PFragHome: Fragment() {
 
     private val CLE = "LLAVE"
     private var type: String? = null
+    private var press = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +33,13 @@ class PFragHome: Fragment() {
         }
         val notificationButton = view.findViewById<ImageView>(R.id.imageView)
         notificationButton.setOnClickListener {
-            replaceFragment(FragNoti())
+            if (!press){
+                press = true
+                replaceFragment(FragNoti())
+            } else {
+                press = false
+                replaceFragment(PFragHomeContent())
+            }
         }
     }
 
