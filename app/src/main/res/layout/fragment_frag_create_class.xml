@@ -23,7 +23,7 @@
             android:text="Create new ClassRoom"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:theme="@style/LettersMedium24" />
+            android:textAppearance="@style/LettersMedium24"/>
 
     </LinearLayout>
 
@@ -38,7 +38,7 @@
         android:layout_marginStart="43dp"
         android:layout_marginTop="150dp"
         android:text="Category"
-        android:theme="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/LettersLogin20"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -49,7 +49,7 @@
         android:layout_marginStart="55dp"
         android:layout_marginTop="210dp"
         android:text="Topic"
-        android:theme="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/LettersLogin20"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="55dp" />
 
