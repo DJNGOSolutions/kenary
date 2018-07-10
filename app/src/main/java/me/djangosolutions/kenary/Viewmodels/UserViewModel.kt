@@ -17,5 +17,5 @@ class UserViewModel(application: Application): AndroidViewModel(application){
 
     fun insert(user: User) = mRepository!!.insert(user)
 
-    fun putUp2Date(email: String, password: String) = mRepository!!.putUp2Date(email, password)
+    fun putUp2Date(email: String, password: String) = mRepository!!.getToken(email, password)
 }

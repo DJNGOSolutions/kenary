@@ -13,9 +13,8 @@ object Model{
 }
 
 interface AmaiService {
-    @POST("login")
-    @FormUrlEncoded
-    fun login(@Field("email") email: String, @Field("pass") password: String): Call<String>
+    @POST("login/{email}/{pass}")
+    fun login(@Path("email") email: String, @Path("pass") password: String): Call<String>
 
     @POST("/find/user")
     fun getUser(@Field("email") email: String): Call<Model.User>

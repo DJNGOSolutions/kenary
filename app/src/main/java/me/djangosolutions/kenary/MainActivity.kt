@@ -1,6 +1,7 @@
 package me.djangosolutions.kenary
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.NetworkOnMainThreadException
@@ -31,9 +32,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState != null) firstTime = savedInstanceState.getBoolean(CLE)
         if (firstTime) setHome()
-
+        val sharedPref = this.getSharedPreferences("log", Context.MODE_PRIVATE)
         val vm = ViewModelProviders.of(this).get(UserViewModel::class.java)
         vm.putUp2Date("example@email.com", "pass")
+        Log.d("PUTUPTODATE", sharedPref.contains(getString(R.string.saved_token)).toString())
+        Toast.makeText(this, sharedPref.getString(getString(R.string.saved_token),"nelson dog"), Toast.LENGTH_LONG).show()
         navigationBottom = findViewById(R.id.navigation)
         navigationBottom!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
