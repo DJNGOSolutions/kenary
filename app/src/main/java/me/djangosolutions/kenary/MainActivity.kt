@@ -1,13 +1,19 @@
 package me.djangosolutions.kenary
 
+import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.NetworkOnMainThreadException
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.widget.SearchView
+import android.util.Log
+import android.widget.Toast
 import me.djangosolutions.kenary.Fragments.PFragCal
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHome
 import me.djangosolutions.kenary.Fragments.PFragProfile
+import me.djangosolutions.kenary.Repositories.UserRepository
+import me.djangosolutions.kenary.Viewmodels.UserViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState != null) firstTime = savedInstanceState.getBoolean(CLE)
         if (firstTime) setHome()
 
+        val vm = ViewModelProviders.of(this).get(UserViewModel::class.java)
+        vm.putUp2Date("example@email.com", "pass")
         navigationBottom = findViewById(R.id.navigation)
         navigationBottom!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
