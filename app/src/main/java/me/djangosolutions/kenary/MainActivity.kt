@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState != null) firstTime = savedInstanceState.getBoolean(CLE)
         if (firstTime) setHome()
-        val sharedPref = this.getSharedPreferences("log", Context.MODE_PRIVATE)
+        val sharedPref = this.getSharedPreferences("log", Context.MODE_PRIVATE)?: return
         val vm = ViewModelProviders.of(this).get(UserViewModel::class.java)
         vm.putUp2Date("example@email.com", "pass")
         Log.d("PUTUPTODATE", sharedPref.contains(getString(R.string.saved_token)).toString())
