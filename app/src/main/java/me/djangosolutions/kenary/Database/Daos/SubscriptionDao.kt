@@ -16,7 +16,7 @@ interface SubscriptionDao {
     @Query("SELECT * FROM subscription_table")
     fun getAllSubscription(): LiveData<List<Subscription>>
 
-    @Query("SELECT * FROM subscription_table")
+    @Query("SELECT * FROM subscription_table WHERE idSubscription =:idSubscription")
     fun getSubscriptionById(idSubscription: Int): LiveData<Subscription>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

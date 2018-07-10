@@ -10,7 +10,7 @@ import me.djangosolutions.kenary.Database.Daos.*
 import me.djangosolutions.kenary.Entity.*
 import java.util.ArrayList
 
-@Database(entities = [(AcademicLevel::class), (Assistance::class), (Category::class), (Classroom::class), (Gender::class), (Phone::class), (Place::class), (Role::class), (Session::class), (Subject::class), (Topic::class), (TypePayment::class), (TypeSession::class), (User::class), (UserClassroom::class)], version = 3)
+@Database(entities = [(AcademicLevel::class), (Assistance::class),(Class::class), (Category::class), (Classroom::class), (Gender::class), (Phone::class), (Place::class), (Role::class), (Session::class), (Subject::class), (Subscription::class), (Topic::class), (TypePayment::class), (Tutorial::class), (TypeSession::class), (User::class), (UserClassroom::class)], version = 4)
 abstract class KenaryDatabase: RoomDatabase(){
 
     private class PopulateDbAsync internal constructor(db: KenaryDatabase): AsyncTask<Void, Void, Void>(){

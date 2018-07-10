@@ -1,4 +1,4 @@
-package me.djangosolutions.kenary.Fragments
+package me.djangosolutions.kenary.Fragments.PFragHome
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
