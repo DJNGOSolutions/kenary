@@ -1,4 +1,4 @@
-package me.djangosolutions.kenary.Fragments
+package me.djangosolutions.kenary.Fragments.PFragHome
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -12,6 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import me.djangosolutions.kenary.Adapters.ClassRvAdapter
 import me.djangosolutions.kenary.Adapters.TutoRvAdapter
+import me.djangosolutions.kenary.Entity.Tutorial
+import me.djangosolutions.kenary.Entity.Class
 import me.djangosolutions.kenary.R
 import me.djangosolutions.kenary.Viewmodels.ClassViewModel
 import me.djangosolutions.kenary.Viewmodels.TutorialViewModel

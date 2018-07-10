@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.PagerAdapter
-import me.djangosolutions.kenary.Fragments.PFragHomeContentTab
+import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContentTab
 import me.djangosolutions.kenary.R
 
 class ViewPagerAdapter(private val context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {

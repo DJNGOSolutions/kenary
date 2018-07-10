@@ -15,7 +15,7 @@ interface ClassroomDao {
     @Query("SELECT * FROM classroom_table")
     fun getAllClassroom(): LiveData<List<Classroom>>
 
-    @Query("SELECT * FROM classroom_table")
+    @Query("SELECT * FROM classroom_table WHERE idClassroom =:idClassroom")
     fun getClassroomById(idClassroom: Int): LiveData<Classroom>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

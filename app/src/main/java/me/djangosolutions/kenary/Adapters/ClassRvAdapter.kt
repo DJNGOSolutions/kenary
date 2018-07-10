@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import me.djangosolutions.kenary.Entity.Class
 import me.djangosolutions.kenary.R
 
 class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<ClassRvAdapter.ViewHolder>() {
@@ -33,7 +34,7 @@ class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<Class
 
     override fun getItemCount(): Int = if (mClass == null) 0  else mClass!!.size
 
-    fun setClassroom(classroom: List<Class>){
+    fun setClassroom(classroom: List<me.djangosolutions.kenary.Entity.Class>){
         mClass = classroom
         notifyDataSetChanged()
     }

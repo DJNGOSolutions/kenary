@@ -10,14 +10,27 @@ import me.djangosolutions.kenary.Database.Daos.*
 import me.djangosolutions.kenary.Entity.*
 import java.util.ArrayList
 
-@Database(entities = [(AcademicLevel::class), (Assistance::class), (Classroom::class), (Gender::class), (Phone::class), (Place::class), (Role::class), (Session::class), (Subject::class), (Topic::class), (TypePayment::class), (TypeSession::class), (User::class)], version = 3)
+@Database(entities = [(AcademicLevel::class), (Assistance::class),(Class::class), (Category::class), (Classroom::class), (Gender::class), (Phone::class), (Place::class), (Role::class), (Session::class), (Subject::class), (Subscription::class), (Topic::class), (TypePayment::class), (Tutorial::class), (TypeSession::class), (User::class), (UserClassroom::class)], version = 4)
 abstract class KenaryDatabase: RoomDatabase(){
 
     private class PopulateDbAsync internal constructor(db: KenaryDatabase): AsyncTask<Void, Void, Void>(){
-        private val mClassroomDao: ClassroomDao = db.classroomDao()
-        private val mTutorialDao: SessionDao = db.sessionDao()
+        private val mClassDao: ClassDao = db.classDao()
+        private val mTutorialDao: TutorialDao = db.tutorialDao()
 
         override fun doInBackground(vararg params: Void): Void? {
+            mClassDao.deleteAll()
+            mTutorialDao.deleteAll()
+            val list = ArrayList<Class>()
+            list.add(Class(1, 0, 0, 7,"Fluídos"))
+            list.add(Class(2,0,0, 10 , "Cálculo"))
+            list.add(Class(3,0,0, 2 , "Ciencias de los materiales"))
+            list.add(Class(4, 0,0, 5, "Contaduría"))
+            val listy = ArrayList<Tutorial>()
+            listy.add(Tutorial(1,0,0, "Derivadas"))
+            listy.add(Tutorial(2, 0, 0, "Ecuaciones Diferenciales"))
+            listy.add(Tutorial(3, 0, 0, "Economía"))
+            for (classy in list) mClassDao.insert(classy)
+            for (tutty in listy) mTutorialDao.insert(tutty)
             //mClassroomDao.deleteAll()
             //mTutorialDao.deleteAll()
             //val list = ArrayList<Classroom>()
@@ -38,6 +51,7 @@ abstract class KenaryDatabase: RoomDatabase(){
     abstract fun academicLevelDao(): AcademicLevelDao
     abstract fun assistanceDao(): AssistanceDao
     abstract fun categoryDao(): CategoryDao
+    abstract fun classDao(): ClassDao
     abstract fun classroomDao(): ClassroomDao
     abstract fun genderDao(): GenderDao
     abstract fun placeDao(): PlaceDao
@@ -47,6 +61,7 @@ abstract class KenaryDatabase: RoomDatabase(){
     abstract fun subjectDao(): SubjectDao
     abstract fun subscriptionDao(): SubscriptionDao
     abstract fun topicDao(): TopicDao
+    abstract fun tutorialDao(): TutorialDao
     abstract fun typePaymentDao(): TypePaymentDao
     abstract fun typeSessionDao(): TypeSessionDao
     abstract fun userClassroomDao(): UserClassroomDao
