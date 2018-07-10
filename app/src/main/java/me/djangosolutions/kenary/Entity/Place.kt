@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "place_table")
-data class Place(@PrimaryKey @ColumnInfo(name = "idPlace_Session") var idPlace_Session: Int = 0,
+data class Place(@PrimaryKey @ColumnInfo(name = "idPlace_Session") var IdPlace_Session: Int = 0,
                    @ColumnInfo(name = "Place") var Place: String = "") {
 }
 

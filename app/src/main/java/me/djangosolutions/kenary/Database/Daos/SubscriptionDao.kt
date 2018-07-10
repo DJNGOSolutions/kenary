@@ -12,12 +12,12 @@ import me.djangosolutions.kenary.Entity.Subscription
  * Created by Marcelo on 10/07/2018.
  */
 @Dao
-interface Subscription {
+interface SubscriptionDao {
     @Query("SELECT * FROM subscription_table")
-    fun getAllCategory(): LiveData<List<Subscription>>
+    fun getAllSubscription(): LiveData<List<Subscription>>
 
     @Query("SELECT * FROM subscription_table")
-    fun getCategoryById(idSubscription: Int): LiveData<Subscription>
+    fun getSubscriptionById(idSubscription: Int): LiveData<Subscription>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(subscription: Subscription)

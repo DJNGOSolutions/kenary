@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import me.djangosolutions.kenary.Entity.Class
 import me.djangosolutions.kenary.R
 
 class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<ClassRvAdapter.ViewHolder>() {

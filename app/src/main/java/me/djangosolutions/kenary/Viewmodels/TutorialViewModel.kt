@@ -3,8 +3,6 @@ package me.djangosolutions.kenary.Viewmodels
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import me.djangosolutions.kenary.Entity.Tutorial
-import me.djangosolutions.kenary.Repositories.TutorialRepository
 
 class TutorialViewModel(application: Application): AndroidViewModel(application) {
     internal var mRepository: TutorialRepository? = null

@@ -3,8 +3,6 @@ package me.djangosolutions.kenary.Viewmodels
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import me.djangosolutions.kenary.Entity.City
-import me.djangosolutions.kenary.Repositories.CityRepository
 
 class CityViewModel(application: Application): AndroidViewModel(application) {
     internal var mRepository: CityRepository? = null

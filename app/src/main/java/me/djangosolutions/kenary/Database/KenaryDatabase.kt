@@ -10,50 +10,46 @@ import me.djangosolutions.kenary.Database.Daos.*
 import me.djangosolutions.kenary.Entity.*
 import java.util.ArrayList
 
-@Database(entities = [(AcademicLevel::class), (Assistance::class), (City::class), (Class::class), (Gender::class), (Institution::class), (Phone::class), (Place::class), (Product::class), (Rate::class), (Role::class), (Session::class), (State::class), (Study::class), (Subject::class), (SubjectTopic::class), (Topic::class), (Tutorial::class), (TypePayment::class), (TypeSession::class), (User::class)], version = 3)
+@Database(entities = [(AcademicLevel::class), (Assistance::class), (Classroom::class), (Gender::class), (Phone::class), (Place::class), (Role::class), (Session::class), (Subject::class), (Topic::class), (TypePayment::class), (TypeSession::class), (User::class)], version = 3)
 abstract class KenaryDatabase: RoomDatabase(){
 
     private class PopulateDbAsync internal constructor(db: KenaryDatabase): AsyncTask<Void, Void, Void>(){
-        private val mClassDao: ClassDao = db.classDao()
-        private val mTutorialDao: TutorialDao = db.tutorialDao()
+        private val mClassroomDao: ClassroomDao = db.classroomDao()
+        private val mTutorialDao: SessionDao = db.sessionDao()
 
         override fun doInBackground(vararg params: Void): Void? {
-            mClassDao.deleteAll()
-            mTutorialDao.deleteAll()
-            val list = ArrayList<Class>()
-            list.add(Class(1, 0, 0, 7,"Fluídos"))
-            list.add(Class(2,0,0, 10 , "Cálculo"))
-            list.add(Class(3,0,0, 2 , "Ciencias de los materiales"))
-            list.add(Class(4, 0,0, 5, "Contaduría"))
-            val listy = ArrayList<Tutorial>()
-            listy.add(Tutorial(1,0,0, "Derivadas"))
-            listy.add(Tutorial(2, 0, 0, "Ecuaciones Diferenciales"))
-            listy.add(Tutorial(3, 0, 0, "Economía"))
-            for (classy in list) mClassDao.insert(classy)
-            for (tutty in listy) mTutorialDao.insert(tutty)
+            //mClassroomDao.deleteAll()
+            //mTutorialDao.deleteAll()
+            //val list = ArrayList<Classroom>()
+            //list.add(Classroom(1, 0, 0))
+            //list.add(Classroom(2,0,0))
+            //list.add(Classroom(3,0,0))
+            //list.add(Classroom(4, 0,0))
+            //val listy = ArrayList<Session>()
+            //listy.add(Session(1,0,0, 0))
+            //listy.add(Session(2, 0, 0, 0))
+            //listy.add(Session(3, 0, 0, 0))
+            //for (classy in list) mClassroomDao.insert(classy)
+            //for (tutty in listy) mTutorialDao.insert(tutty)
             return null
         }
     }
 
     abstract fun academicLevelDao(): AcademicLevelDao
     abstract fun assistanceDao(): AssistanceDao
-    abstract fun cityDao(): CityDao
-    abstract fun classDao(): ClassDao
+    abstract fun categoryDao(): CategoryDao
+    abstract fun classroomDao(): ClassroomDao
     abstract fun genderDao(): GenderDao
-    abstract fun institutionDao(): InstitutionDao
     abstract fun placeDao(): PlaceDao
     abstract fun phoneDao(): PhoneDao
-    abstract fun rateDao(): RateDao
     abstract fun roleDao(): RoleDao
     abstract fun sessionDao(): SessionDao
-    abstract fun stateDao(): StateDao
-    abstract fun studyDao(): StudyDao
     abstract fun subjectDao(): SubjectDao
-    abstract fun subjectTopicDao(): SubjectTopicDao
+    abstract fun subscriptionDao(): SubscriptionDao
     abstract fun topicDao(): TopicDao
-    abstract fun tutorialDao(): TutorialDao
     abstract fun typePaymentDao(): TypePaymentDao
     abstract fun typeSessionDao(): TypeSessionDao
+    abstract fun userClassroomDao(): UserClassroomDao
     abstract fun userDao(): UserDao
 
     companion object {
