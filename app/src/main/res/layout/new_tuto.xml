@@ -11,14 +11,14 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/relativeLayout"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
         android:background="@drawable/corners_primary_dark"
         android:gravity="center"
         android:paddingBottom="25dp"
@@ -45,10 +45,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Solicita una tutoria"
+                    android:textAppearance="@style/LettersLoginWhite16"
                     android:textColor="@color/white"
-                    android:textStyle="bold"
                     android:textSize="24sp"
-                    android:textAppearance="@style/LettersLoginWhite16"/>
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -82,11 +82,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Categoria"
-                        android:textSize="18sp"
-                        android:textAppearance="@style/LettersMedium14"
                         android:textAlignment="center"
+                        android:textAppearance="@style/LettersMedium14"
                         android:textColor="@color/colorAccent"
                         android:textColorHint="@color/colorAccent"
+                        android:textSize="18sp"
                         app:met_floatingLabel="normal" />
 
                     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -94,10 +94,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Tema"
-                        android:textSize="18sp"
-                        android:textAppearance="@style/LettersMedium14"
                         android:textAlignment="center"
+                        android:textAppearance="@style/LettersMedium14"
                         android:textColorHint="#ffffff"
+                        android:textSize="18sp"
                         app:met_floatingLabel="normal" />
 
                     <LinearLayout
@@ -110,11 +110,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="HH"
-                            android:textSize="18sp"
-                            android:textAppearance="@style/LettersMedium14"
                             android:padding="4dp"
                             android:textAlignment="center"
+                            android:textAppearance="@style/LettersMedium14"
                             android:textColorHint="#ffffff"
+                            android:textSize="18sp"
                             app:met_floatingLabel="normal" />
 
                         <!--
@@ -126,11 +126,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="MM"
-                            android:textSize="18sp"
-                            android:textAppearance="@style/LettersMedium14"
                             android:padding="4dp"
                             android:textAlignment="center"
+                            android:textAppearance="@style/LettersMedium14"
                             android:textColorHint="#ffffff"
+                            android:textSize="18sp"
                             app:met_floatingLabel="normal" />
 
                         <!--
@@ -142,11 +142,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="AM/PM"
-                            android:textSize="18sp"
-                            android:textAppearance="@style/LettersMedium14"
                             android:padding="4dp"
                             android:textAlignment="center"
+                            android:textAppearance="@style/LettersMedium14"
                             android:textColorHint="#ffffff"
+                            android:textSize="18sp"
                             app:met_floatingLabel="normal" />
 
                         <!--
