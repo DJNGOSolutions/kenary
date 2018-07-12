@@ -82,8 +82,7 @@ class LoginActivity : AppCompatActivity() {
         revokeAccess.setOnClickListener {
             v: View? ->  revokeAcces()
         }*/
-
-        account_sign_in.setOnClickListener {
+        sign_up_login.setOnClickListener {
             val intent = AuthUI.getInstance().createSignInIntentBuilder()
                     .setAvailableProviders(signInProviders)
                     .build()
