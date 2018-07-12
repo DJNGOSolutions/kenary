@@ -1,4 +1,4 @@
-package me.djangosolutions.kenary.Fragments
+package me.djangosolutions.kenary.Fragments.Dialogs
 
 import android.app.Dialog
 import android.support.v4.app.DialogFragment

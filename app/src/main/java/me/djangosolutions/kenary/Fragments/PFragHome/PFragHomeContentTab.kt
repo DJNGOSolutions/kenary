@@ -17,7 +17,7 @@ import me.djangosolutions.kenary.Adapters.ClassRvAdapter
 import me.djangosolutions.kenary.Adapters.TutoRvAdapter
 import me.djangosolutions.kenary.Entity.Tutorial
 import me.djangosolutions.kenary.Entity.Class
-import me.djangosolutions.kenary.Fragments.FragDialogTutoria
+import me.djangosolutions.kenary.Fragments.Dialogs.FragDialogTutoria
 import me.djangosolutions.kenary.R
 import me.djangosolutions.kenary.Viewmodels.ClassViewModel
 import me.djangosolutions.kenary.Viewmodels.TutorialViewModel
