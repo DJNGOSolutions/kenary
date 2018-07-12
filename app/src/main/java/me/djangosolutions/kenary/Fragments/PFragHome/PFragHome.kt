@@ -45,7 +45,7 @@ class PFragHome: Fragment() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment){
+    fun replaceFragment(fragment: Fragment){
         val fragmentTransaction = fragmentManager!!.beginTransaction()
         fragmentTransaction.replace(R.id.frame_main_home, fragment)
         fragmentTransaction.commit()

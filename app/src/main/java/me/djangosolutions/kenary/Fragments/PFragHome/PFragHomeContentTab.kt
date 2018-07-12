@@ -2,6 +2,7 @@ package me.djangosolutions.kenary.Fragments.PFragHome
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
@@ -25,6 +26,7 @@ class PFragHomeContentTab : Fragment() {
     private var mTutorialViewModel: TutorialViewModel? = null
     private var CLE = "LLAVE"
     private var type: String? = null
+    private var listener: OnPFragHomeContentTabInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +51,7 @@ class PFragHomeContentTab : Fragment() {
         }
         recyclerView!!.layoutManager = lManager
          when(type){
-            "classroom" -> {val adapter = ClassRvAdapter(view.context)
+            "classroom" -> {val adapter = ClassRvAdapter(view.context, listener)
                 mClassViewModel!!.getAll().observe(this, Observer<List<Class>>{ t -> adapter.setClassroom(t!!)})
                 recyclerView!!.adapter = adapter
             }
@@ -58,6 +60,28 @@ class PFragHomeContentTab : Fragment() {
                 recyclerView!!.adapter = adapter
             }
         }
+    }
+
+    fun onCardviewPressed(type: String){
+        listener?.onFragmentInteraction(type)
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is OnPFragHomeContentTabInteractionListener){
+            listener = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+
+    interface OnPFragHomeContentTabInteractionListener {
+        fun onFragmentInteraction(type: String)
     }
 
     companion object {

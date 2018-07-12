@@ -9,9 +9,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import me.djangosolutions.kenary.Entity.Class
+import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContentTab
 import me.djangosolutions.kenary.R
 
-class ClassRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<ClassRvAdapter.ViewHolder>() {
+class ClassRvAdapter(private val mcontext: Context, listener: PFragHomeContentTab.OnPFragHomeContentTabInteractionListener?) : RecyclerView.Adapter<ClassRvAdapter.ViewHolder>() {
 
     private var inflater: LayoutInflater? = null
     private var mClass: List<Class>? = null
