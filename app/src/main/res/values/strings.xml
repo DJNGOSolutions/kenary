@@ -9,6 +9,7 @@
     <string name="tuto_fecha">Date</string>
     <string name="tuto_hora">Time</string>
     <string name="tuto_lugar">Place</string>
+    <string name="tuto_class">Session category</string>
     <string name="Subscribe">Subscribe</string>
     <string name="Solicitar">Solicitar</string>
     <string name="create">Create session</string>
