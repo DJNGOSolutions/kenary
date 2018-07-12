@@ -7,15 +7,8 @@ import android.arch.persistence.room.PrimaryKey
 /**
  * Created by Marcelo on 12/07/2018.
  */
-@Entity(tableName = "category_table")
-data class CategoryEntity (@PrimaryKey @ColumnInfo(name = "idTutorial") var IdTutorial: Int = 0,
-                           @ColumnInfo(name = "categoryName") var CategoryName: String = "",
-                           @ColumnInfo(name = "subjectName") var SubjectName: String = "",
-                           @ColumnInfo(name = "tutorName") var TutorName: String = "",
-                           @ColumnInfo(name = "tutorialPhoto") var TutorialPhoto: String = "",
-                           @ColumnInfo(name = "tutorialTheme") var TutorialTheme: String = "",
-                           @ColumnInfo(name = "tutorialPlace") var TutorialPlace: String = "",
-                           @ColumnInfo(name = "tutorialTime") var TutorialTime: String = "",
-                           @ColumnInfo(name = "tutorialDate") var TutorialDate: String = "",
-                           @ColumnInfo(name = "tutorialPrice") var TutorialPrice: String = ""){
+@Entity (tableName = "category_table")
+data class CategoryEntity(@PrimaryKey @ColumnInfo(name = "idCategory") var IdCategory: Int = 0,
+                          @ColumnInfo(name = "categoryPhoto") var CategoryPhoto: String = "",
+                          @ColumnInfo(name = "categoryName") var CategoryName: String = ""){
 }
