@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey
 /**
  * Created by Marcelo on 12/07/2018.
  */
-@Entity(tableName = "User")
+@Entity(tableName = "user_table")
 data class UserEntity(@PrimaryKey @ColumnInfo(name = "idUser") var IdUser: Int = 0,
                 @ColumnInfo(name = "idGoogle") var IdGoogle: Int = 0,
                 @ColumnInfo(name = "idTipo") var IdTipo: Int = 0,
