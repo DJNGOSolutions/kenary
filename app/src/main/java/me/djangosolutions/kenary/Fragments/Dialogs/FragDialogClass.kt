@@ -10,7 +10,7 @@ import android.view.Window
 import me.djangosolutions.kenary.R
 
 class FragDialogClass: DialogFragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.class_info, container, false)
     }
 

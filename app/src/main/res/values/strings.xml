@@ -4,7 +4,7 @@
     <string name="title_calendar">Events</string>
     <string name="title_messages">Messages</string>
     <string name="title_profile">Profile</string>
-    <string name="title_class">Classroom</string>
+    <string name="title_class">Category</string>
     <string name="title_tuto">Session</string>
     <string name="tuto_fecha">Date</string>
     <string name="tuto_hora">Time</string>
