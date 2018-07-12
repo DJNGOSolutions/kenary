@@ -16,17 +16,19 @@ import me.djangosolutions.kenary.Adapters.ClassItemRvAdapter
 import me.djangosolutions.kenary.Adapters.ClassRvAdapter
 import me.djangosolutions.kenary.Adapters.TutoRvAdapter
 import me.djangosolutions.kenary.Entity.Tutorial
-import me.djangosolutions.kenary.Entity.Class
+import me.djangosolutions.kenary.Entity.ClassroomEntity
+import me.djangosolutions.kenary.Entity.TutorialEntity
 import me.djangosolutions.kenary.Fragments.Dialogs.FragDialogTutoria
 import me.djangosolutions.kenary.R
-import me.djangosolutions.kenary.Viewmodels.ClassViewModel
+import me.djangosolutions.kenary.Viewmodels.ClassroomViewModel
 import me.djangosolutions.kenary.Viewmodels.TutorialViewModel
+import me.djangosolutions.kenary.Viewmodels.TutorialViewModelA
 
 
 class PFragHomeContentTab : Fragment() {
     private var recyclerView: RecyclerView? = null
-    private var mClassViewModel: ClassViewModel? = null
-    private var mTutorialViewModel: TutorialViewModel? = null
+    private var mClassViewModel: ClassroomViewModel? = null
+    private var mTutorialViewModel: TutorialViewModelA? = null
     private var CLE = "LLAVE"
     private var type: String? = null
     private var listener: OnPFragHomeContentTabInteractionListener? = null
@@ -48,8 +50,8 @@ class PFragHomeContentTab : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mClassViewModel = ViewModelProviders.of(this).get(ClassViewModel::class.java)
-        mTutorialViewModel = ViewModelProviders.of(this).get(TutorialViewModel::class.java)
+        mClassViewModel = ViewModelProviders.of(this).get(ClassroomViewModel::class.java)
+        mTutorialViewModel = ViewModelProviders.of(this).get(TutorialViewModelA::class.java)
         recyclerView = view.findViewById(R.id.classroomrvfab)
         val lManager = when (type){
             classroomkey -> {GridLayoutManager(this.context, 2)}
@@ -67,15 +69,15 @@ class PFragHomeContentTab : Fragment() {
         recyclerView!!.layoutManager = lManager
          when(type){
             classroomkey -> {val adapter = ClassRvAdapter(view.context, listener)
-                mClassViewModel!!.getAll().observe(this, Observer<List<Class>>{ t -> adapter.setClassroom(t!!)})
+                mClassViewModel!!.getAll().observe(this, Observer<List<ClassroomEntity>>{ t -> adapter.setClassroom(t!!)})
                 recyclerView!!.adapter = adapter
             }
             tutoriakey -> {val adapter = TutoRvAdapter(view.context)
-                mTutorialViewModel!!.getAll().observe(this, Observer<List<Tutorial>>{ t -> adapter.setTutorial(t!!) })
+                mTutorialViewModel!!.getAll().observe(this, Observer<List<TutorialEntity>>{ t -> adapter.setTutorial(t!!) })
                 recyclerView!!.adapter = adapter
             }
            classroomitemkey-> {val adapter = ClassItemRvAdapter(view.context)
-               mClassViewModel!!.getAll().observe(this, Observer<List<Class>>{ t ->  adapter.setClassroomI(t!!)})
+               mClassViewModel!!.getAll().observe(this, Observer<List<ClassroomEntity>>{ t ->  adapter.setClassroomI(t!!)})
                recyclerView!!.adapter = adapter
            }
         }

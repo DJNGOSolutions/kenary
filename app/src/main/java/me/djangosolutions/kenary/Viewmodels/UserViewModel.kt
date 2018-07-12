@@ -3,9 +3,7 @@ package me.djangosolutions.kenary.Viewmodels
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import me.djangosolutions.kenary.Entity.Class
 import me.djangosolutions.kenary.Entity.UserEntity
-import me.djangosolutions.kenary.Repositories.ClassRepository
 import me.djangosolutions.kenary.Repositories.UserRepository
 
 /**

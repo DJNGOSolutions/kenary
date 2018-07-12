@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import me.djangosolutions.kenary.Entity.Tutorial
+import me.djangosolutions.kenary.Entity.TutorialEntity
 import me.djangosolutions.kenary.R
 
 class TutoRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<TutoRvAdapter.ViewHolder>() {
 
     private var inflater: LayoutInflater? = null
-    private var mTutorial: List<Tutorial>? = null
+    private var mTutorial: List<TutorialEntity>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         inflater = LayoutInflater.from(mcontext)
@@ -24,13 +25,13 @@ class TutoRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<TutoRv
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nametuto: TextView = holder.nametuto
         val imgtuto: ImageView = holder.imgtuto
-        nametuto.text = mTutorial!![position].title
+        nametuto.text = mTutorial!![position].TutorialTheme
         imgtuto.setImageResource(R.drawable.ic_dashboard_black_24dp)
     }
 
     override fun getItemCount(): Int = if (mTutorial == null) 0 else mTutorial!!.size
 
-    fun setTutorial(tutorial: List<Tutorial>){
+    fun setTutorial(tutorial: List<TutorialEntity>){
         mTutorial = tutorial
         notifyDataSetChanged()
     }

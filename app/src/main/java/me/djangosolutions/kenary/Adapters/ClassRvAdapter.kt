@@ -8,18 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import me.djangosolutions.kenary.Entity.Class
+import me.djangosolutions.kenary.Entity.ClassroomEntity
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContentTab
 import me.djangosolutions.kenary.R
+import me.djangosolutions.kenary.glide.GlideApp
 
 class ClassRvAdapter(private val mcontext: Context, private val listener: PFragHomeContentTab.OnPFragHomeContentTabInteractionListener?) : RecyclerView.Adapter<ClassRvAdapter.ViewHolder>() {
 
     private val mListener: View.OnClickListener = View.OnClickListener { v ->
-        val classroom = v.tag as Class
-        listener?.onFragmentInteraction(classroom.title)
+        val classroom = v.tag as ClassroomEntity
+        listener?.onFragmentInteraction(classroom.CategoryName)
     }
     private var inflater: LayoutInflater? = null
-    private var mClass: List<Class>? = null
+    private var mClass: List<ClassroomEntity>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         inflater = LayoutInflater.from(mcontext)
@@ -28,8 +29,12 @@ class ClassRvAdapter(private val mcontext: Context, private val listener: PFragH
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.nameclass.text = mClass!![position].title
-        holder.imgclass.setImageResource(R.drawable.ic_dashboard_black_24dp)
+        holder.nameclass.text = mClass!![position].CategoryName
+        GlideApp.with(holder.itemView)
+                .load(mClass!![position].ClassroomPhoto)
+                .centerCrop()
+                .placeholder(R.drawable.ic_dashboard_black_24dp)
+                .into(holder.imgclass)
         holder.imgclass.setOnClickListener {
             mListener.onClick(holder.itemView)
         }
@@ -41,7 +46,7 @@ class ClassRvAdapter(private val mcontext: Context, private val listener: PFragH
 
     override fun getItemCount(): Int = if (mClass == null) 0  else mClass!!.size
 
-    fun setClassroom(classroom: List<me.djangosolutions.kenary.Entity.Class>){
+    fun setClassroom(classroom: List<me.djangosolutions.kenary.Entity.ClassroomEntity>){
         mClass = classroom
         notifyDataSetChanged()
     }

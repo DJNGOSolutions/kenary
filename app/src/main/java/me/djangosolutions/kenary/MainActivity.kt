@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() , PFragHomeContentTab.OnPFragHomeConten
         if (firstTime) setHome()
         val sharedPref = this.getSharedPreferences("log", Context.MODE_PRIVATE)?: return
         Log.d("PUTUPTODATE", sharedPref.contains(getString(R.string.saved_token)).toString())
-        Toast.makeText(this, sharedPref.getString(getString(R.string.saved_token),"nelson dog"), Toast.LENGTH_LONG).show()
         navigationBottom = findViewById(R.id.navigation)
         navigationBottom!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
