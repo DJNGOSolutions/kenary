@@ -9,14 +9,12 @@ import io.reactivex.schedulers.Schedulers
 import me.djangosolutions.kenary.Database.Daos.UserDao
 import me.djangosolutions.kenary.Database.KenaryDatabase
 import me.djangosolutions.kenary.Entity.UserEntity
-import me.djangosolutions.kenary.Webserver.AmaiAPI
 
 /**
  * Created by Marcelo on 12/07/2018.
  */
 class UserRepository(application: Application) {
     var mUserDao: UserDao? = null
-    var AmaiAPI: AmaiAPI? = null
 
     init{
         val db = KenaryDatabase.getDatabase(application)

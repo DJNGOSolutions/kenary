@@ -11,14 +11,12 @@ import me.djangosolutions.kenary.Database.Daos.UserDao
 import me.djangosolutions.kenary.Database.KenaryDatabase
 import me.djangosolutions.kenary.Entity.TutorialEntity
 import me.djangosolutions.kenary.Entity.UserEntity
-import me.djangosolutions.kenary.Webserver.AmaiAPI
 
 /**
  * Created by Marcelo on 12/07/2018.
  */
 class TutorialRepositoryA(application: Application) {
     var mTutorialDao: TutorialDaoA? = null
-    var AmaiAPI: AmaiAPI? = null
 
     init{
         val db = KenaryDatabase.getDatabase(application)

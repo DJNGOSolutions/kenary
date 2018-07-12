@@ -18,7 +18,7 @@ interface UserDao {
     @Query("SELECT * FROM user_table WHERE idUser = :idUser")
     fun getUserById(idUser: Int): LiveData<UserEntity>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(userEntity: UserEntity)
 
     @Query("DELETE FROM user_table")

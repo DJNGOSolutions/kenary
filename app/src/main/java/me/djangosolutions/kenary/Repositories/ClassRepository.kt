@@ -9,11 +9,9 @@ import io.reactivex.schedulers.Schedulers
 import me.djangosolutions.kenary.Database.Daos.ClassDao
 import me.djangosolutions.kenary.Database.KenaryDatabase
 import me.djangosolutions.kenary.Entity.Class
-import me.djangosolutions.kenary.Webserver.AmaiAPI
 
 class ClassRepository(application: Application) {
     var mClassDao: ClassDao? = null
-    var AmaiAPI: AmaiAPI? = null
 
     init {
         val db = KenaryDatabase.getDatabase(application)

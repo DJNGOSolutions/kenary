@@ -49,7 +49,7 @@ abstract class KenaryDatabase: RoomDatabase(){
             listonga.add(TutorialEntity(3, "Matematicas", "Matematicas", "Nelson Castro", "https://bit.ly/2Mr7J6K", "Programación Orientada a Objetos", "UCA", "9:00 AM","24/07/18", "6.77$"))
             for (tasty in lista) mClassDaoA.insert(tasty)
             for (masty in listonga) mTutorialDaoA.insert(masty)
-            mUserDao.insert(UserEntity(0, 0, 0, "https://bit.ly/2Mr7J6K", "nelsoncaastro", "Nelson Castro", "UCA", "roothashed"))
+            mUserDao.insert(UserEntity(0, 0, 2, "https://bit.ly/2Mr7J6K", "nelsoncaastro", "Nelson Castro", "UCA", "roothashed"))
             return null
         }
     }
