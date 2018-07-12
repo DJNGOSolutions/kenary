@@ -5,8 +5,8 @@ import retrofit2.http.*
 
 
 object Model{
-    data class User( val Id: Int?, val UserName: String, val UserAge: String, val Gender: String,
-                     val UserEmail: String,val AcademicLevel: String, var role: String)
+    data class User( val Id: Int?, val UserPhoto: String, val UserName: String,val UserInstitution: String,
+                     val idGoogle : Integer,var role: String)
     data class Subject( val ID: Int, val IdCategory: Int, val Subject: String )
     data class Category( val ID: Int, val IdSubject: Int, val TopicName: String )
     data class AcademicLevels( val id: String,val AcademicLevel : String)
@@ -16,8 +16,8 @@ object Model{
 }
 
 interface AmaiService {
-    @POST("login/{email}/{pass}")
-    fun login(@Path("email") email: String, @Path("pass") password: String): Call<String>
+    @POST("login")
+    fun login(@Field("username") username: String, @Field("pass") password: String): Call<String>
 
     @POST("/find/user")
     fun getUser(@Field("token") token: String): Call<Model.User>
