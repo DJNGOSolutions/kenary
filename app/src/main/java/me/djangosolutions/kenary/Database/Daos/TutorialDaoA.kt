@@ -15,7 +15,7 @@ interface TutorialDaoA {
     @Query("SELECT * FROM tutorial_table_a")
     fun getAllTutorials(): LiveData<List<TutorialEntity>>
 
-    @Query("SELECT * FROM tutorial_table_a WHERE idTutorial = :IdTutorial")
+    @Query("SELECT * FROM tutorial_table_a WHERE idTutorial = :idClass")
     fun getTutorialById(idClass: Int): LiveData<TutorialEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

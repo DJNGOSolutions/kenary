@@ -15,7 +15,7 @@ interface UserDao {
     @Query("SELECT * FROM user_table")
     fun getAllUsers(): LiveData<List<UserEntity>>
 
-    @Query("SELECT * FROM user_table WHERE idUser = :IdUser")
+    @Query("SELECT * FROM user_table WHERE idUser = :idClass")
     fun getUserById(idClass: Int): LiveData<UserEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

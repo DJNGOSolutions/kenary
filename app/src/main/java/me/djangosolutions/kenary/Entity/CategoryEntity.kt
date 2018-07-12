@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey
 /**
  * Created by Marcelo on 12/07/2018.
  */
-@Entity(tableName = "category_tableNEW")
+@Entity(tableName = "category_table")
 data class CategoryEntity (@PrimaryKey @ColumnInfo(name = "idTutorial") var IdTutorial: Int = 0,
                            @ColumnInfo(name = "categoryName") var CategoryName: String = "",
                            @ColumnInfo(name = "subjectName") var SubjectName: String = "",
