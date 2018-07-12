@@ -165,6 +165,7 @@
         android:visibility="visible">
 
         <android.support.v7.widget.AppCompatButton
+            android:id="@+id/sign_up_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
