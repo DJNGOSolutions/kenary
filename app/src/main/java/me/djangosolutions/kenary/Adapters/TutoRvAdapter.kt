@@ -10,6 +10,7 @@ import android.widget.TextView
 import me.djangosolutions.kenary.Entity.Tutorial
 import me.djangosolutions.kenary.Entity.TutorialEntity
 import me.djangosolutions.kenary.R
+import me.djangosolutions.kenary.glide.GlideApp
 
 class TutoRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<TutoRvAdapter.ViewHolder>() {
 
@@ -23,10 +24,13 @@ class TutoRvAdapter(private val mcontext: Context) : RecyclerView.Adapter<TutoRv
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val nametuto: TextView = holder.nametuto
-        val imgtuto: ImageView = holder.imgtuto
-        nametuto.text = mTutorial!![position].TutorialTheme
-        imgtuto.setImageResource(R.drawable.ic_dashboard_black_24dp)
+        holder.nametuto.text = mTutorial!![position].TutorialTheme
+        holder.imgtuto.setImageResource(R.drawable.ic_dashboard_black_24dp)
+        GlideApp.with(holder.itemView)
+                .load(mTutorial!![position].TutorialPhoto)
+                .centerCrop()
+                .placeholder(R.drawable.ic_dashboard_black_24dp)
+                .into(holder.imgtuto)
     }
 
     override fun getItemCount(): Int = if (mTutorial == null) 0 else mTutorial!!.size

@@ -13,7 +13,7 @@ object Model{
     data class Sessions(val UserEmail:String, val SessionDate:String)
     data class Classrooms(val Id:Int, val UserName: String, val TopicName: String,
                           val IdSubject: Int, val SubjectName: String)
-    data class session( val idCategory: Int, val idSubject: Int, val idUser: Int, val tutoryTheme: String,val tutoryTime: string,
+    data class session( val idCategory: Int, val idSubject: Int, val idUser: Int, val tutoryTheme: String,val tutoryTime: String,
                        val tutoryDate: String, val tutoryPrice: String, val idusertutor: Int, 
                        val place: String, val idUserCustomer: Int, val id : Int)
 }
@@ -25,16 +25,19 @@ interface AmaiService {
     @POST("/find/user")
     fun getUser(@Field("token") token: String): Call<Model.User>
     
-      @POST("/create/session")
-    fun createSession(@Field("idCategory") idCategory: String, @Field("idSubject") idSubject: Int,
-               @Field("idUser") idUSer: int, @Field("tutoryTHeme") tutoryTheme: String,
-                    @Field("tutoryTheme") tutoryTheme: String, @Field("tutoryDate"),
-                     @Field("tutoryPrice") tutoryPrice : Int,
-                     @Field("iuserTutor") idUserTutor: Int, @Field("idUserCustomer") idUserCustmoer: String,
-                      @Field("id") id): Call<Model.session>
+    @POST("/create/session")
+    fun createSession(@Field("idCategory") idCategory: String,
+                      @Field("idSubject") idSubject: Int,
+                      @Field("idUser") idUSer: Int,
+                      @Field("tutoryTheme") tutoryTheme: String,
+                      @Field("tutoryPrice") tutoryPrice : Int,
+                      @Field("tutoryDate") tutoryDate: String,
+                      @Field("iuserTutor") idUserTutor: Int,
+                      @Field("idUserCustomer") idUserCustmoer: String,
+                      @Field("id") id: Int): Call<Model.session>
     
-      @POST("/join/session")
-    fun joinSession( @Field("idUserCustomer") idUserCustmoer: String, @Field("id") id): Call<Model.session>
+    @POST("/join/session")
+    fun joinSession( @Field("idUserCustomer") idUserCustmoer: String, @Field("id") id: Int): Call<Model.session>
 
     @GET("/subjects")
     fun getSubjects() : Call<List<Model.Subject>>
