@@ -31,7 +31,7 @@ class PFragHome: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (type == "contents"){
-            replaceFragment(PFragHomeContent())
+            replaceFragment(PFragHomeContent.newInstance("type"))
         }
         val notificationButton = view.findViewById<ImageView>(R.id.imageView)
         notificationButton.setOnClickListener {
@@ -40,7 +40,7 @@ class PFragHome: Fragment() {
                 replaceFragment(FragNoti())
             } else {
                 press = false
-                replaceFragment(PFragHomeContent())
+                replaceFragment(PFragHomeContent.newInstance("type"))
             }
         }
     }

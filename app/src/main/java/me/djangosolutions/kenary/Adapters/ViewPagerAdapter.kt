@@ -8,7 +8,7 @@ import android.support.v4.view.PagerAdapter
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContentTab
 import me.djangosolutions.kenary.R
 
-class ViewPagerAdapter(private val context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class ViewPagerAdapter(private val context: Context, type: String, fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
 
     override fun getItem(position: Int): Fragment = when (position) {
