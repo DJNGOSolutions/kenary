@@ -19,7 +19,7 @@
     <string name="information">Write here the topics you are going to teach...</string>
     <string name="cat_class">Classroom category</string>
     <string name="session_cat">Sessions category</string>
-    <string name="username">Username</string>
+    <string name="username">E-mail</string>
     <string name="password">Password</string>
     <string name="saved_token">token</string>
     <string name="cat_topic">Category topic</string>

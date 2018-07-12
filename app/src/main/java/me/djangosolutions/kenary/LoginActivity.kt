@@ -5,11 +5,13 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
@@ -23,18 +25,18 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_sign_up.*
+import kotlinx.android.synthetic.main.notification_template_lines_media.view.*
 import me.djangosolutions.kenary.Firebase.Model.Utils.FirebaseUtil
-import org.jetbrains.anko.clearTask
+import org.jetbrains.anko.*
 import org.jetbrains.anko.design.longSnackbar
-import org.jetbrains.anko.indeterminateProgressDialog
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.newTask
 
 class LoginActivity : AppCompatActivity() {
     companion object {
         val RC_SIGN_IN:Int = 9001
         val RC_SIGN_IN2:Int = 9002
         val TAG:String = "GoogleActivity"
+        val TAG2:String = "EmailPassword"
     }
 
     private val signInProviders =
@@ -83,11 +85,52 @@ class LoginActivity : AppCompatActivity() {
             v: View? ->  revokeAcces()
         }*/
         sign_up_login.setOnClickListener {
-            val intent = AuthUI.getInstance().createSignInIntentBuilder()
+            startActivity(intentFor<SignUpActivity>().newTask().clearTask())
+           /* val intent = AuthUI.getInstance().createSignInIntentBuilder()
                     .setAvailableProviders(signInProviders)
                     .build()
-            startActivityForResult(intent, RC_SIGN_IN2)
+            startActivityForResult(intent, RC_SIGN_IN2)*/
         }
+    }
+
+    fun createAccount(email:String, password:String){
+        Log.d(TAG2, "createAccount" + email)
+        if(!validateForm()){
+            return
+        }
+        val progressDialog = indeterminateProgressDialog("")
+        mAuth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        Log.d(TAG2,"createUserWithEmailAndPassword: success")
+                        val user:FirebaseUser = mAuth.currentUser!!
+                        updateUI(user)
+                    }else{
+                        Log.w(TAG2,"createUserWithEmailAndPassword: failure",task.exception)
+                        Snackbar.make(View(this), "Authentication failed.",Snackbar.LENGTH_SHORT).show()
+                        updateUI(null)
+                    }
+                    progressDialog.dismiss()
+                }
+    }
+
+    fun validateForm():Boolean{
+        var valid:Boolean = true
+        val email:String = username_signup.text.toString()
+        if(TextUtils.isEmpty(email)){
+            username_signup.error = "Required."
+            valid = false
+        }else{
+            username_signup.error = null
+        }
+        val password:String = password_signup.text.toString()
+        if(TextUtils.isEmpty(password)){
+            password_signup.error = "Required"
+            valid = false
+        }else{
+            password_signup.error = null
+        }
+        return valid
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -118,9 +161,9 @@ class LoginActivity : AppCompatActivity() {
 
                 when(response.error?.errorCode){
                     ErrorCodes.NO_NETWORK ->
-                        longSnackbar(Constraint_Layout, "No Network")
+                        longSnackbar(View(this), "No Network")
                     ErrorCodes.UNKNOWN_ERROR ->
-                        longSnackbar(Constraint_Layout, "Unknown error")
+                        longSnackbar(View(this), "Unknown error")
                 }
             }
         }
@@ -138,8 +181,47 @@ class LoginActivity : AppCompatActivity() {
                         updateUI(user)
                     }else{
                         Log.w(TAG,"signInWithCredential:Failure",it.exception)
-                        //Snackbar.make(findViewById(R.id.main_layout),"Authentication Failed.",Snackbar.LENGTH_SHORT).show()
+                        Snackbar.make(View(this),"Authentication Failed.",Snackbar.LENGTH_SHORT).show()
                         updateUI(null)
+                    }
+                }
+    }
+
+    private fun sigIn(email:String,password: String){
+        Log.d(TAG2, "singIn:$email")
+        if(!validateForm()){
+            return
+        }
+        val progressDialog = indeterminateProgressDialog("")
+
+        mAuth.signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        Log.d(TAG2,"SigInWithEmail: Success")
+                        val user:FirebaseUser = mAuth.currentUser!!
+                        updateUI(user)
+                    }else{
+                        Log.w(TAG2,"SignInWithEmail: Failure",task.exception)
+                        Snackbar.make(View(this),"Authentication Failed.",Snackbar.LENGTH_SHORT).show()
+                        updateUI(null)
+                    }
+                    if(!task.isSuccessful){
+                        TODO("JUST SET THE STATUS TO THE VIEW. ACTUALLY THIS IS CRINGE")
+                    }
+                    progressDialog.dismiss()
+                }
+    }
+
+    private fun sendEmailVerification(){
+        val user:FirebaseUser = mAuth.currentUser!!
+        user.sendEmailVerification()
+                .addOnCompleteListener {task ->
+                    if(task.isSuccessful){
+                        Snackbar.make(View(this),"Verification email sent to: ${user.email}",Snackbar.LENGTH_SHORT).show()
+                    }else{
+                        Log.e(TAG2,"sendEmailVerification",task.exception)
+                        Toast.makeText(this,"Failed to sent verification email.",
+                                Toast.LENGTH_SHORT).show()
                     }
                 }
     }
@@ -149,7 +231,12 @@ class LoginActivity : AppCompatActivity() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
-    private fun signOut(){
+    private fun SignOut(){
+        mAuth.signOut()
+        updateUI(null)
+    }
+
+    private fun signOutGoogle(){
         //Firebase sign out
         mAuth.signOut()
         //Google sign out
