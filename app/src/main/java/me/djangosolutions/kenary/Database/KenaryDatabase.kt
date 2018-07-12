@@ -10,7 +10,7 @@ import me.djangosolutions.kenary.Database.Daos.*
 import me.djangosolutions.kenary.Entity.*
 import java.util.ArrayList
 
-@Database(entities = [(Class::class), (Tutorial::class)], version = 5)
+@Database(entities = [(Class::class), (Tutorial::class), (CategoryEntity::class), (TutorialEntity::class), (UserEntity::class)], version = 7)
 abstract class KenaryDatabase: RoomDatabase(){
 
     private class PopulateDbAsync internal constructor(db: KenaryDatabase): AsyncTask<Void, Void, Void>(){
@@ -32,7 +32,7 @@ abstract class KenaryDatabase: RoomDatabase(){
             for (classy in list) mClassDao.insert(classy)
             for (tutty in listy) mTutorialDao.insert(tutty)
             //mClassroomDao.deleteAll()
-            //mTutorialDao.deleteAll()
+            //mCategoryDao.deleteAll()
             //val list = ArrayList<Classroom>()
             //list.add(Classroom(1, 0, 0))
             //list.add(Classroom(2,0,0))
@@ -43,13 +43,16 @@ abstract class KenaryDatabase: RoomDatabase(){
             //listy.add(Session(2, 0, 0, 0))
             //listy.add(Session(3, 0, 0, 0))
             //for (classy in list) mClassroomDao.insert(classy)
-            //for (tutty in listy) mTutorialDao.insert(tutty)
+            //for (tutty in listy) mCategoryDao.insert(tutty)
             return null
         }
     }
 
     abstract fun classDao(): ClassDao
     abstract fun tutorialDao(): TutorialDao
+    abstract fun userDao(): UserDao
+    abstract fun tutorialDaoA(): TutorialDaoA
+    abstract fun categoryDao(): CategoryDao
 
     companion object {
         private var INSTANCE: KenaryDatabase? = null

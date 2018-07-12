@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import com.bumptech.glide.Glide
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -21,6 +22,7 @@ import kotlinx.android.synthetic.main.profile.view.*
 import me.djangosolutions.kenary.Adapters.TutoRvAdapter
 import me.djangosolutions.kenary.Firebase.Model.Utils.FirebaseUtil
 import me.djangosolutions.kenary.Firebase.Model.Utils.StorageUtil
+import me.djangosolutions.kenary.Fragments.Dialogs.FragDialogModifUser
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHome
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContent
 import me.djangosolutions.kenary.LoginActivity
@@ -38,6 +40,7 @@ class PFragProfile : Fragment() {
     private var pictureJustChanged =false
     private var loginActivity: LoginActivity? = null
     private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private val dialog = FragDialogModifUser()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,10 @@ class PFragProfile : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.profile, container, false)
 
+        val butty = view.findViewById<ImageButton>(R.id.edit_profile)
+        butty.setOnClickListener {
+            dialog.show(fragmentManager, "vacil eterno")
+        }
         view.apply {
             profile_image.setOnClickListener {
                 val intent = Intent().apply {

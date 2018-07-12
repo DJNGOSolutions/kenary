@@ -59,7 +59,7 @@
                 android:background="@color/white">
 
                 <LinearLayout
-                    android:layout_width="338dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
@@ -77,26 +77,25 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:hintTextAppearance="@style/LettersLightAccent14"
-                        app:counterTextAppearance="@style/LettersLightAccent14"
-                        android:textColorHint="@color/colorPrimaryDark"
                         android:id="@+id/username_profile_design"
-                        >
-                    <EditText
-                        android:id="@+id/username_profile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="24sp"
-                        android:textColorHighlight="@color/colorPrimaryDark"
-                        android:textColorLink="@color/colorPrimaryDark"
-                        android:textAppearance="@style/LettersLightAccent16"
-                        android:hint="Nombre"
-                        android:gravity="center"
-                        />
+                        android:textColorHint="@color/colorPrimaryDark"
+                        app:counterTextAppearance="@style/LettersLightAccent14"
+                        app:hintTextAppearance="@style/LettersLightAccent14">
+
+                        <EditText
+                            android:id="@+id/username_profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="Nombre"
+                            android:inputType="textEmailAddress"
+                            android:textAppearance="@style/LettersLightAccent16"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textColorHighlight="@color/colorPrimaryDark"
+                            android:textColorLink="@color/colorPrimaryDark"
+                            android:textSize="24sp" />
                     </android.support.design.widget.TextInputLayout>
 
                     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -113,8 +112,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                    </LinearLayout>
+                        android:orientation="horizontal"></LinearLayout>
                 </LinearLayout>
 
 
@@ -135,12 +133,12 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/corners_accent"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:text="Guardar"
-        android:background="@drawable/corners_accent"
-        android:textStyle="bold"
         android:textAppearance="@style/LettersLoginWhite16"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
