@@ -19,6 +19,7 @@ class FragDialogTutoria: DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window.setBackgroundDrawableResource(android.R.color.transparent)
         return dialog
     }
 }
