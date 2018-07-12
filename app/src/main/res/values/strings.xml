@@ -1,24 +1,28 @@
 <resources>
     <string name="app_name">Kenary</string>
     <string name="title_home">Home</string>
-    <string name="title_calendar">Calendar</string>
+    <string name="title_calendar">Events</string>
     <string name="title_messages">Messages</string>
     <string name="title_profile">Profile</string>
     <string name="title_class">Classroom</string>
-    <string name="title_tuto">Tutorias</string>
+    <string name="title_tuto">Session</string>
     <string name="tuto_fecha">Date</string>
-    <string name="tuto_hora">Hora</string>
-    <string name="tuto_lugar">Lugar</string>
+    <string name="tuto_hora">Time</string>
+    <string name="tuto_lugar">Place</string>
     <string name="Subscribe">Subscribe</string>
     <string name="Solicitar">Solicitar</string>
-    <string name="create_class">Crear classroom</string>
+    <string name="create">Create session</string>
+    <string name="create_class">Create classroom</string>
     <string name="query_hint">Search for classrooms...</string>
     <string name="tutor">Tutor</string>
-    <string name="information">Information</string>
+    <string name="information">Write here the topics you are going to teach...</string>
     <string name="cat_class">Classroom category</string>
-    <string name="tuto_class">Tutoria category</string>
+    <string name="session_cat">Sessions category</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="saved_token">token</string>
+    <string name="cat_topic">Category topic</string>
+    <string name="session_topic">Session topic</string>
+    <string name="solicitar_class">Create classroom</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

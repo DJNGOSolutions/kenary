@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarviewer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         android:background="@color/backTint"
-        android:id="@+id/appbarviewer">
+        android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingtoolbarviewer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/collapsingtoolbarviewer"
+            android:background="@color/backTint"
+            android:fitsSystemWindows="true"
+            app:collapsedTitleTextAppearance="@style/CollapsedAppBar"
+            app:expandedTitleTextAppearance="@style/ExpandedAppBar"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
-            android:fitsSystemWindows="true"
-            android:background="@color/backTint"
-            app:expandedTitleTextAppearance="@style/ExpandedAppBar"
-            app:collapsedTitleTextAppearance="@style/CollapsedAppBar"
             app:toolbarId="@id/toolbarviewer">
 
 
@@ -73,8 +73,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="42dp"
                     android:layout_marginTop="8dp"
-                    android:textAppearance="@style/LettersLogin14"
                     android:text="@string/cat_class"
+                    android:textAppearance="@style/LettersLogin14"
                     app:layout_constraintStart_toEndOf="@+id/imageView_class"
                     app:layout_constraintTop_toBottomOf="@+id/class_title" />
 
@@ -90,8 +90,44 @@
         <android.support.constraint.ConstraintLayout
             android:id="@+id/class_constraint"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:weightSum="9"
+                app:layout_constraintBottom_toTopOf="@+id/class_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator2">
+
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textAppearance="@style/LettersLogin14"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:text="@string/tuto_lugar" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:textAppearance="@style/LettersLogin14"
+                    android:gravity="center"
+                    android:text="@string/tuto_fecha"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:textAppearance="@style/LettersLogin14"
+                    android:gravity="center"
+                    android:text="@string/tuto_hora"/>
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/separator"
@@ -105,11 +141,13 @@
                 android:id="@+id/tutor_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/tutor"
                 android:textAppearance="@style/LettersLight24"
+                app:layout_constraintBottom_toTopOf="@+id/separator2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/separator" />
@@ -128,16 +166,20 @@
                 android:id="@+id/class_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginStart="4dp"
                 android:text="@string/information"
                 android:textAppearance="@style/LettersLogin14"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/separator2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/separator2" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
 
         </android.support.constraint.ConstraintLayout>
 
