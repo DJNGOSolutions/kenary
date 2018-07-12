@@ -12,15 +12,15 @@ import me.djangosolutions.kenary.Entity.TutorialEntity
  */
 @Dao
 interface TutorialDaoA {
-    @Query("SELECT * FROM tutorial_table")
+    @Query("SELECT * FROM tutorial_table_a")
     fun getAllTutorials(): LiveData<List<TutorialEntity>>
 
-    @Query("SELECT * FROM tutorial_table WHERE idTutorial = :IdTutorial")
-    fun getTutorialById(): LiveData<TutorialEntity>
+    @Query("SELECT * FROM tutorial_table_a WHERE idTutorial = :IdTutorial")
+    fun getTutorialById(idClass: Int): LiveData<TutorialEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(tutorialEntity: TutorialEntity)
 
-    @Query("DELETE FROM tutorial_table")
+    @Query("DELETE FROM tutorial_table_a")
     fun deleteAll()
 }
