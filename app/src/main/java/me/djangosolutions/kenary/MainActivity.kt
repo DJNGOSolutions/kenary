@@ -11,9 +11,10 @@ import android.util.Log
 import android.widget.Toast
 import me.djangosolutions.kenary.Fragments.PFragCal
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHome
+import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContentTab
 import me.djangosolutions.kenary.Fragments.PFragProfile
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , PFragHomeContentTab.OnPFragHomeContentTabInteractionListener{
 
     var CLE = "FIRST"
     var firstTime = true
@@ -66,6 +67,9 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
         fragmentTransaction.replace(R.id.frame_main, fragment)
         fragmentTransaction.commit()
+    }
+
+    override fun onFragmentInteraction(type: String) {
     }
 }
 
