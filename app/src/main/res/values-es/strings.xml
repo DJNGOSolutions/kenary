@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kenary</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_calendar">Eventos</string>
+    <string name="title_messages">Mensajes</string>
+    <string name="title_profile">Perfil</string>
+    <string name="title_class">Clase</string>
+    <string name="title_tuto">Tutoria</string>
+    <string name="tuto_fecha">Fecha</string>
+    <string name="tuto_hora">Hora</string>
+    <string name="tuto_lugar">Lugar</string>
+    <string name="Subscribe">Suscribirse</string>
+    <string name="Solicitar">Solicitar</string>
+    <string name="create">Crear tutoria</string>
+    <string name="create_class">Crear clase</string>
+    <string name="query_hint">Buscar clases...</string>
+    <string name="tutor">Tutor</string>
+    <string name="information">Escribir los temas a impartir en esta clase...</string>
+    <string name="cat_class">Categoria de la clase</string>
+    <string name="session_cat">Categoria de la tutoria</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="saved_token">token</string>
+    <string name="cat_topic">Titulo de categoria</string>
+    <string name="session_topic">Titulo de tutoria</string>
+    <string name="solicitar_class">Creaar clase</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string></resources>
