@@ -10,7 +10,7 @@ import me.djangosolutions.kenary.Database.Daos.*
 import me.djangosolutions.kenary.Entity.*
 import java.util.ArrayList
 
-@Database(entities = [(AcademicLevel::class), (Assistance::class),(Class::class), (Category::class), (Classroom::class), (Gender::class), (Phone::class), (Place::class), (Role::class), (Session::class), (Subject::class), (Subscription::class), (Topic::class), (TypePayment::class), (Tutorial::class), (TypeSession::class), (User::class), (UserClassroom::class)], version = 4)
+@Database(entities = [(Class::class), (Tutorial::class)], version = 5)
 abstract class KenaryDatabase: RoomDatabase(){
 
     private class PopulateDbAsync internal constructor(db: KenaryDatabase): AsyncTask<Void, Void, Void>(){
@@ -48,24 +48,8 @@ abstract class KenaryDatabase: RoomDatabase(){
         }
     }
 
-    abstract fun academicLevelDao(): AcademicLevelDao
-    abstract fun assistanceDao(): AssistanceDao
-    abstract fun categoryDao(): CategoryDao
     abstract fun classDao(): ClassDao
-    abstract fun classroomDao(): ClassroomDao
-    abstract fun genderDao(): GenderDao
-    abstract fun placeDao(): PlaceDao
-    abstract fun phoneDao(): PhoneDao
-    abstract fun roleDao(): RoleDao
-    abstract fun sessionDao(): SessionDao
-    abstract fun subjectDao(): SubjectDao
-    abstract fun subscriptionDao(): SubscriptionDao
-    abstract fun topicDao(): TopicDao
     abstract fun tutorialDao(): TutorialDao
-    abstract fun typePaymentDao(): TypePaymentDao
-    abstract fun typeSessionDao(): TypeSessionDao
-    abstract fun userClassroomDao(): UserClassroomDao
-    abstract fun userDao(): UserDao
 
     companion object {
         private var INSTANCE: KenaryDatabase? = null

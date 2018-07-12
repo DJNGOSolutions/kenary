@@ -4,7 +4,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.NetworkOnMainThreadException
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.widget.SearchView
@@ -13,8 +12,6 @@ import android.widget.Toast
 import me.djangosolutions.kenary.Fragments.PFragCal
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHome
 import me.djangosolutions.kenary.Fragments.PFragProfile
-import me.djangosolutions.kenary.Repositories.UserRepository
-import me.djangosolutions.kenary.Viewmodels.UserViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,8 +30,6 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState != null) firstTime = savedInstanceState.getBoolean(CLE)
         if (firstTime) setHome()
         val sharedPref = this.getSharedPreferences("log", Context.MODE_PRIVATE)?: return
-        val vm = ViewModelProviders.of(this).get(UserViewModel::class.java)
-        vm.putUp2Date("example@email.com", "pass")
         Log.d("PUTUPTODATE", sharedPref.contains(getString(R.string.saved_token)).toString())
         Toast.makeText(this, sharedPref.getString(getString(R.string.saved_token),"nelson dog"), Toast.LENGTH_LONG).show()
         navigationBottom = findViewById(R.id.navigation)
