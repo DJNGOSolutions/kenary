@@ -55,7 +55,7 @@ class PFragProfile : Fragment() {
                 }
                 startActivityForResult(Intent.createChooser(intent,"Select image"),RC_SELECT_IMAGE)
             }
-            save_profile_button.setOnClickListener {
+/*            save_profile_button.setOnClickListener {
                 if(::selectedImageBytes.isInitialized){
                     StorageUtil.uploadProfilePhoto(selectedImageBytes){imagePath ->
                         FirebaseUtil.updateCurrentUser(display_name.text.toString(),
@@ -72,7 +72,7 @@ class PFragProfile : Fragment() {
                     )
                 }
                 toast("Saving")
-            }
+            }*/
             sign_out_profile.setOnClickListener {
                 FirebaseAuth.getInstance().signOut()
                 AuthUI.getInstance()
@@ -116,7 +116,7 @@ class PFragProfile : Fragment() {
                 if(!pictureJustChanged && userM.profilePicPath != null){
                     GlideApp.with(this)
                             .load(StorageUtil.pathToReference(userM.profilePicPath))
-                            .placeholder(R.drawable.ic_person_black_24dp)
+                            .placeholder(R.drawable.ic_person_white_24dp)
                             .into(profile_image)
                 }
             }
