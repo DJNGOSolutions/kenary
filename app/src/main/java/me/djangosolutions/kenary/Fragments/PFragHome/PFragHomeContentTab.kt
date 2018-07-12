@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import me.djangosolutions.kenary.Adapters.ClassItemRvAdapter
 import me.djangosolutions.kenary.Adapters.ClassRvAdapter
 import me.djangosolutions.kenary.Adapters.TutoRvAdapter
 import me.djangosolutions.kenary.Entity.Tutorial
@@ -27,6 +29,10 @@ class PFragHomeContentTab : Fragment() {
     private var CLE = "LLAVE"
     private var type: String? = null
     private var listener: OnPFragHomeContentTabInteractionListener? = null
+    private val classroomkey = "classroom"
+    private val tutoriakey = "tutorias"
+    private val classroomitemkey = "classroomitem"
+    private val tutorialitemkey = "tutorialitem"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,29 +42,37 @@ class PFragHomeContentTab : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.activity_main_home_content_tab, container, false)
+        return inflater.inflate(R.layout.activity_main_home_content_tabfab, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mClassViewModel = ViewModelProviders.of(this).get(ClassViewModel::class.java)
         mTutorialViewModel = ViewModelProviders.of(this).get(TutorialViewModel::class.java)
-        recyclerView = view.findViewById(R.id.classroomrv)
+        recyclerView = view.findViewById(R.id.classroomrvfab)
         val lManager = when (type){
-            "classroom" -> {GridLayoutManager(this.context, 2)}
-            "tutorias" -> {LinearLayoutManager(this.context)}
+            classroomkey -> {GridLayoutManager(this.context, 2)}
+            tutoriakey -> {LinearLayoutManager(this.context)}
+            classroomitemkey -> {LinearLayoutManager(this.context)}
+            tutorialitemkey -> {LinearLayoutManager(this.context)}
             else -> {LinearLayoutManager(this.context)}
         }
+        val butty = view.findViewById<FloatingActionButton>(R.id.buttonadd)
+        if (type == classroomkey) butty.hide()
         recyclerView!!.layoutManager = lManager
          when(type){
-            "classroom" -> {val adapter = ClassRvAdapter(view.context, listener)
+            classroomkey -> {val adapter = ClassRvAdapter(view.context, listener)
                 mClassViewModel!!.getAll().observe(this, Observer<List<Class>>{ t -> adapter.setClassroom(t!!)})
                 recyclerView!!.adapter = adapter
             }
-            "tutorias" -> {val adapter = TutoRvAdapter(view.context)
+            tutoriakey -> {val adapter = TutoRvAdapter(view.context)
                 mTutorialViewModel!!.getAll().observe(this, Observer<List<Tutorial>>{ t -> adapter.setTutorial(t!!) })
                 recyclerView!!.adapter = adapter
             }
+           classroomitemkey-> {val adapter = ClassItemRvAdapter(view.context)
+               mClassViewModel!!.getAll().observe(this, Observer<List<Class>>{ t ->  adapter.setClassroomI(t!!)})
+               recyclerView!!.adapter = adapter
+           }
         }
     }
 

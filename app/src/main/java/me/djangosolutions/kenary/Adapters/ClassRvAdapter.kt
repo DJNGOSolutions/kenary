@@ -12,8 +12,12 @@ import me.djangosolutions.kenary.Entity.Class
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContentTab
 import me.djangosolutions.kenary.R
 
-class ClassRvAdapter(private val mcontext: Context, listener: PFragHomeContentTab.OnPFragHomeContentTabInteractionListener?) : RecyclerView.Adapter<ClassRvAdapter.ViewHolder>() {
+class ClassRvAdapter(private val mcontext: Context, private val listener: PFragHomeContentTab.OnPFragHomeContentTabInteractionListener?) : RecyclerView.Adapter<ClassRvAdapter.ViewHolder>() {
 
+    private val mListener: View.OnClickListener = View.OnClickListener { v ->
+        val classroom = v.tag as Class
+        listener?.onFragmentInteraction(classroom.title)
+    }
     private var inflater: LayoutInflater? = null
     private var mClass: List<Class>? = null
 
@@ -24,12 +28,14 @@ class ClassRvAdapter(private val mcontext: Context, listener: PFragHomeContentTa
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val nameclass: TextView = holder.nameclass
-        val imgclass: ImageView = holder.imgclass
-        nameclass.text = mClass!![position].title
-        imgclass.setImageResource(R.drawable.ic_dashboard_black_24dp)
-        holder.cardview.setOnClickListener {
-
+        holder.nameclass.text = mClass!![position].title
+        holder.imgclass.setImageResource(R.drawable.ic_dashboard_black_24dp)
+        holder.imgclass.setOnClickListener {
+            mListener.onClick(holder.itemView)
+        }
+        with(holder.itemView){
+            tag = mClass?.get(position)
+            setOnClickListener { mListener }
         }
     }
 

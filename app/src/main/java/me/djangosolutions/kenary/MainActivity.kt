@@ -11,11 +11,13 @@ import android.util.Log
 import android.widget.Toast
 import me.djangosolutions.kenary.Fragments.PFragCal
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHome
+import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContent
 import me.djangosolutions.kenary.Fragments.PFragHome.PFragHomeContentTab
 import me.djangosolutions.kenary.Fragments.PFragProfile
 
 class MainActivity : AppCompatActivity() , PFragHomeContentTab.OnPFragHomeContentTabInteractionListener{
 
+    val PFragHome = me.djangosolutions.kenary.Fragments.PFragHome.PFragHome.newInstance("contents")
     var CLE = "FIRST"
     var firstTime = true
     var searchBar: SearchView? = null
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity() , PFragHomeContentTab.OnPFragHomeConten
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home ->{
-                if (!(item.isChecked)) replaceFragment(PFragHome.newInstance("contents"))
+                if (!(item.isChecked)) replaceFragment(PFragHome)
                 return@OnNavigationItemSelectedListener true}
             R.id.navigation_calendar ->{
                 if (!(item.isChecked)) replaceFragment(PFragCal())
@@ -59,7 +61,7 @@ class MainActivity : AppCompatActivity() , PFragHomeContentTab.OnPFragHomeConten
 
     private fun setHome(){
         firstTime = false
-        replaceFragment(PFragHome.newInstance("contents"))
+        replaceFragment(PFragHome)
     }
 
     private fun replaceFragment(fragment: Fragment?){
@@ -70,6 +72,7 @@ class MainActivity : AppCompatActivity() , PFragHomeContentTab.OnPFragHomeConten
     }
 
     override fun onFragmentInteraction(type: String) {
+        PFragHome.replaceFragment(PFragHomeContentTab.newInstance("classroomitem"))
     }
 }
 
