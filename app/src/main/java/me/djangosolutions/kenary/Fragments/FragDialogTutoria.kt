@@ -16,7 +16,6 @@ class FragDialogTutoria: DialogFragment() {
         return inflater.inflate(R.layout.tuto_info, container, false)
     }
 
-    /** The system calls this only when creating the layout in a dialog.  */
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)

@@ -17,6 +17,7 @@ import me.djangosolutions.kenary.Adapters.ClassRvAdapter
 import me.djangosolutions.kenary.Adapters.TutoRvAdapter
 import me.djangosolutions.kenary.Entity.Tutorial
 import me.djangosolutions.kenary.Entity.Class
+import me.djangosolutions.kenary.Fragments.FragDialogTutoria
 import me.djangosolutions.kenary.R
 import me.djangosolutions.kenary.Viewmodels.ClassViewModel
 import me.djangosolutions.kenary.Viewmodels.TutorialViewModel
@@ -58,6 +59,10 @@ class PFragHomeContentTab : Fragment() {
             else -> {LinearLayoutManager(this.context)}
         }
         val butty = view.findViewById<FloatingActionButton>(R.id.buttonadd)
+        butty.setOnClickListener {
+            val dialog = FragDialogTutoria()
+            dialog.show(fragmentManager, "vacil eterno")
+        }
         if (type == classroomkey) butty.hide()
         recyclerView!!.layoutManager = lManager
          when(type){
