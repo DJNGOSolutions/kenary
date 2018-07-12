@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -43,7 +42,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/create"
+                    android:text="@string/solicitar_class"
                     android:textAppearance="@style/LettersLoginWhite16"
                     android:textColor="@color/white"
                     android:textSize="24sp"
@@ -80,7 +79,7 @@
                         android:id="@+id/android_material_design_spinnerCat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/session_cat"
+                        android:hint="@string/cat_class"
                         android:textAlignment="center"
                         android:textAppearance="@style/LettersMedium14"
                         android:textColor="@color/colorAccent"
@@ -92,7 +91,7 @@
                         android:id="@+id/android_material_design_spinnerSubj"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/session_topic"
+                        android:hint="@string/cat_topic"
                         android:textAlignment="center"
                         android:textAppearance="@style/LettersMedium14"
                         android:textColorHint="#ffffff"
@@ -163,7 +162,7 @@
         android:layout_marginTop="16dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="@string/create"
+        android:text="@string/create_class"
         android:background="@drawable/corners_accent"
         android:textStyle="bold"
         android:textAppearance="@style/LettersLoginWhite16"
