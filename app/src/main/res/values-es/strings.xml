@@ -19,7 +19,7 @@
     <string name="information">Escribir los temas a impartir en esta clase...</string>
     <string name="cat_class">Categoria de la clase</string>
     <string name="session_cat">Categoria de la tutoria</string>
-    <string name="username">Usuario</string>
+    <string name="username">Correo</string>
     <string name="password">Contraseña</string>
     <string name="saved_token">token</string>
     <string name="cat_topic">Titulo de categoria</string>

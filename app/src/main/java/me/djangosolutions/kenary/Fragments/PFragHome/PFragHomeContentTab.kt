@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
@@ -41,14 +42,14 @@ class PFragHomeContentTab : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.activity_main_home_content_tab, container, false)
+        return inflater.inflate(R.layout.activity_main_home_content_tabfab, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mClassViewModel = ViewModelProviders.of(this).get(ClassViewModel::class.java)
         mTutorialViewModel = ViewModelProviders.of(this).get(TutorialViewModel::class.java)
-        recyclerView = view.findViewById(R.id.classroomrv)
+        recyclerView = view.findViewById(R.id.classroomrvfab)
         val lManager = when (type){
             classroomkey -> {GridLayoutManager(this.context, 2)}
             tutoriakey -> {LinearLayoutManager(this.context)}
@@ -56,6 +57,8 @@ class PFragHomeContentTab : Fragment() {
             tutorialitemkey -> {LinearLayoutManager(this.context)}
             else -> {LinearLayoutManager(this.context)}
         }
+        val butty = view.findViewById<FloatingActionButton>(R.id.buttonadd)
+        if (type == classroomkey) butty.hide()
         recyclerView!!.layoutManager = lManager
          when(type){
             classroomkey -> {val adapter = ClassRvAdapter(view.context, listener)
