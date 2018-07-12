@@ -3,14 +3,12 @@
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/relativeLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
@@ -97,17 +95,28 @@
                             android:textColorLink="@color/colorPrimaryDark"
                             android:textSize="24sp" />
                     </android.support.design.widget.TextInputLayout>
-
-                    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                        android:id="@+id/android_material_design_spinnerSubj"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/username_profile_design2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Institucion"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/LettersMedium14"
-                        android:textColorHint="#ffffff"
-                        android:textSize="18sp"
-                        app:met_floatingLabel="normal" />
+                        android:textColorHint="@color/colorPrimaryDark"
+                        app:counterTextAppearance="@style/LettersLightAccent14"
+                        app:hintTextAppearance="@style/LettersLightAccent14">
+
+                        <EditText
+                            android:id="@+id/institution_profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="Institución"
+                            android:inputType="textEmailAddress"
+                            android:textAppearance="@style/LettersLightAccent16"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textColorHighlight="@color/colorPrimaryDark"
+                            android:textColorLink="@color/colorPrimaryDark"
+                            android:textSize="24sp" />
+                    </android.support.design.widget.TextInputLayout>
+
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -125,7 +134,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/save_profile_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"

@@ -52,6 +52,22 @@ class PFragProfile : Fragment() {
         val butty = view.findViewById<ImageButton>(R.id.edit_profile)
         butty.setOnClickListener {
             dialog.show(fragmentManager, "vacil eterno")
+            if(::selectedImageBytes.isInitialized){
+                StorageUtil.uploadProfilePhoto(selectedImageBytes){imagePath ->
+                    FirebaseUtil.updateCurrentUser(display_name.text.toString(),
+                            institution_text.text.toString(),
+                            email_text.text.toString(),
+                            imagePath
+                    )
+                }
+            }else{
+                FirebaseUtil.updateCurrentUser(display_name.text.toString(),
+                        institution_text.text.toString(),
+                        email_text.text.toString(),
+                        null
+                )
+            }
+            toast("Saving")
         }
         view.apply {
             profile_image.setOnClickListener {

@@ -84,8 +84,11 @@ class LoginActivity : AppCompatActivity() {
         revokeAccess.setOnClickListener {
             v: View? ->  revokeAcces()
         }*/
+        account_sign_in.setOnClickListener {
+            sigIn(username.text.toString(),password.text.toString())
+        }
         sign_up_login.setOnClickListener {
-            startActivity(intentFor<SignUpActivity>().newTask().clearTask())
+            startActivity(intentFor<SignUpActivity>())
            /* val intent = AuthUI.getInstance().createSignInIntentBuilder()
                     .setAvailableProviders(signInProviders)
                     .build()
@@ -116,19 +119,19 @@ class LoginActivity : AppCompatActivity() {
 
     fun validateForm():Boolean{
         var valid:Boolean = true
-        val email:String = username_signup.text.toString()
+        val email:String = username.text.toString()
         if(TextUtils.isEmpty(email)){
-            username_signup.error = "Required."
+            username.error = "Required."
             valid = false
         }else{
-            username_signup.error = null
+            username.error = null
         }
-        val password:String = password_signup.text.toString()
-        if(TextUtils.isEmpty(password)){
-            password_signup.error = "Required"
+        val passwordd:String = password.text.toString()
+        if(TextUtils.isEmpty(passwordd)){
+            password.error = "Required"
             valid = false
         }else{
-            password_signup.error = null
+            password.error = null
         }
         return valid
     }
@@ -197,12 +200,19 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener { task ->
                     if(task.isSuccessful){
-                        Log.d(TAG2,"SigInWithEmail: Success")
                         val user:FirebaseUser = mAuth.currentUser!!
-                        updateUI(user)
+                        Log.d(TAG2,"SigInWithEmail: Success")
+                        if(mAuth.currentUser!!.isEmailVerified){
+                            updateUI(user)
+                        }else{
+                            Toast.makeText(this, "Email is not verified, please check your email.",Toast.LENGTH_SHORT).show()
+                            mAuth.signOut()
+                        }
+
                     }else{
                         Log.w(TAG2,"SignInWithEmail: Failure",task.exception)
-                        Snackbar.make(View(this),"Authentication Failed.",Snackbar.LENGTH_SHORT).show()
+                        //Snackbar.make(View(this),"Authentication Failed.",Snackbar.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Authentication failed.",Toast.LENGTH_SHORT).show()
                         updateUI(null)
                     }
                     if(!task.isSuccessful){
@@ -260,9 +270,14 @@ class LoginActivity : AppCompatActivity() {
             //mDetailTextView.text = getString(R.string.firebase_status_fmt,user.uid)
             //findViewById<SignInButton>(R.id.sign_in_button).visibility = View.GONE
             //findViewById<LinearLayout>(R.id.sign_out_and_disconnect).visibility = View.VISIBLE
-            FirebaseUtil.initCurrentUserIfFirstTime {
-                startActivity(intentFor<MainActivity>().newTask().clearTask())
+            if(mAuth.currentUser!!.isEmailVerified){
+                FirebaseUtil.initCurrentUserIfFirstTime {
+                    startActivity(intentFor<MainActivity>().newTask().clearTask())
+                }
+            }else{
+                mAuth.signOut()
             }
+
         }else{
             //  mStatusTextView.text = getString(R.string.signed_out)
             // mDetailTextView.text = null

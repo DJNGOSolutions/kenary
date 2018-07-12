@@ -7,11 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Button
+import kotlinx.android.synthetic.main.edit_profile.*
+import kotlinx.android.synthetic.main.profile.*
+import me.djangosolutions.kenary.Firebase.Model.Utils.FirebaseUtil
+import me.djangosolutions.kenary.Firebase.Model.Utils.StorageUtil
 import me.djangosolutions.kenary.R
+import org.jetbrains.anko.support.v4.toast
+import java.io.ByteArrayOutputStream
 
 class FragDialogModifUser: DialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.edit_profile, container, false)
+
+        val view = inflater.inflate(R.layout.edit_profile, container, false)
+
+        return view
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

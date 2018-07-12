@@ -2,6 +2,7 @@ package me.djangosolutions.kenary
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_sign_up.*
@@ -24,8 +25,14 @@ class SplashActivity:AppCompatActivity(){
     }
     private fun updateUI(user: FirebaseUser?){
         if(user != null){
-            FirebaseUtil.initCurrentUserIfFirstTime {
-                startActivity(intentFor<MainActivity>().newTask().clearTask())
+            if(mAuth.currentUser!!.isEmailVerified){
+                FirebaseUtil.initCurrentUserIfFirstTime {
+                    startActivity(intentFor<MainActivity>().newTask().clearTask())
+                }
+            }else{
+                //Toast.makeText(this,"Email not verified, please check your email.",Toast.LENGTH_SHORT).show()
+                mAuth.signOut()
+                startActivity(intentFor<LoginActivity>().newTask().clearTask())
             }
         }else{
             startActivity(intentFor<LoginActivity>().newTask().clearTask())
