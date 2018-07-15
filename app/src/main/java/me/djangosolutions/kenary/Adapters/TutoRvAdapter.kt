@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import me.djangosolutions.kenary.Entity.Tutorial
 import me.djangosolutions.kenary.Entity.TutorialEntity
 import me.djangosolutions.kenary.R
 import me.djangosolutions.kenary.glide.GlideApp

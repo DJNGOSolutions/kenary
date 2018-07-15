@@ -3,19 +3,24 @@ package me.djangosolutions.kenary.Viewmodels
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import me.djangosolutions.kenary.Entity.Tutorial
-import me.djangosolutions.kenary.Repositories.TutorialRepository
+import me.djangosolutions.kenary.Entity.TutorialEntity
+import me.djangosolutions.kenary.Entity.UserEntity
+import me.djangosolutions.kenary.Repositories.TutorialRepositoryA
+import me.djangosolutions.kenary.Repositories.UserRepository
 
-class TutorialViewModel(application: Application): AndroidViewModel(application) {
-    internal var mRepository: TutorialRepository? = null
+/**
+ * Created by Marcelo on 12/07/2018.
+ */
+class TutorialViewModelA (application: Application): AndroidViewModel(application) {
+    internal var mRepository: TutorialRepositoryA? = null
 
     init {
-        mRepository = TutorialRepository(application)
+        mRepository = TutorialRepositoryA(application)
     }
 
-    fun getAll(): LiveData<List<Tutorial>> = mRepository!!.getAll()
+    fun getAll(): LiveData<List<TutorialEntity>> = mRepository!!.getAll()
 
-    fun getAllbyId(id: Int): LiveData<Tutorial> = mRepository!!.getAllbyId(id)
+    fun getAllbyId(id: Int): LiveData<TutorialEntity> = mRepository!!.getAllByID(id)
 
-    fun insert(tutorial: Tutorial) = mRepository!!.insert(tutorial)
+    fun insert(tutorialEntity: TutorialEntity) = mRepository!!.insert(tutorialEntity)
 }

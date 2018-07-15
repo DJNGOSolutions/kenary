@@ -15,20 +15,18 @@ import android.view.ViewGroup
 import me.djangosolutions.kenary.Adapters.ClassItemRvAdapter
 import me.djangosolutions.kenary.Adapters.ClassRvAdapter
 import me.djangosolutions.kenary.Adapters.TutoRvAdapter
-import me.djangosolutions.kenary.Entity.Tutorial
 import me.djangosolutions.kenary.Entity.ClassroomEntity
 import me.djangosolutions.kenary.Entity.TutorialEntity
 import me.djangosolutions.kenary.Fragments.Dialogs.FragDialogTutoria
 import me.djangosolutions.kenary.R
 import me.djangosolutions.kenary.Viewmodels.ClassroomViewModel
 import me.djangosolutions.kenary.Viewmodels.TutorialViewModel
-import me.djangosolutions.kenary.Viewmodels.TutorialViewModelA
 
 
 class PFragHomeContentTab : Fragment() {
     private var recyclerView: RecyclerView? = null
     private var mClassViewModel: ClassroomViewModel? = null
-    private var mTutorialViewModel: TutorialViewModelA? = null
+    private var mTutorialViewModel: TutorialViewModel? = null
     private var CLE = "LLAVE"
     private var type: String? = null
     private var listener: OnPFragHomeContentTabInteractionListener? = null
@@ -51,7 +49,7 @@ class PFragHomeContentTab : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mClassViewModel = ViewModelProviders.of(this).get(ClassroomViewModel::class.java)
-        mTutorialViewModel = ViewModelProviders.of(this).get(TutorialViewModelA::class.java)
+        mTutorialViewModel = ViewModelProviders.of(this).get(TutorialViewModel::class.java)
         recyclerView = view.findViewById(R.id.classroomrvfab)
         val lManager = when (type){
             classroomkey -> {GridLayoutManager(this.context, 2)}

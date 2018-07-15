@@ -10,25 +10,18 @@ import me.djangosolutions.kenary.Database.Daos.*
 import me.djangosolutions.kenary.Entity.*
 import java.util.ArrayList
 
-@Database(entities = [(Tutorial::class),(ClassroomEntity::class), (CategoryEntity::class), (TutorialEntity::class), (UserEntity::class)], version = 8)
+@Database(entities = [(ClassroomEntity::class), (CategoryEntity::class), (TutorialEntity::class), (UserEntity::class)], version = 9)
 abstract class KenaryDatabase: RoomDatabase(){
 
     private class PopulateDbAsync internal constructor(db: KenaryDatabase): AsyncTask<Void, Void, Void>(){
-        private val mTutorialDao: TutorialDao = db.tutorialDao()
         private val mClassDaoA: ClassroomDao = db.classroomDao()
         private val mTutorialDaoA: TutorialDaoA = db.tutorialDaoA()
         private val mUserDao: UserDao = db.userDao()
 
         override fun doInBackground(vararg params: Void): Void? {
-            mTutorialDao.deleteAll()
             mClassDaoA.deleteAll()
             mTutorialDaoA.deleteAll()
             mUserDao.deleteAll()
-            val listy = ArrayList<Tutorial>()
-            listy.add(Tutorial(1,0,0, "Derivadas"))
-            listy.add(Tutorial(2, 0, 0, "Ecuaciones Diferenciales"))
-            listy.add(Tutorial(3, 0, 0, "Economía"))
-            for (tutty in listy) mTutorialDao.insert(tutty)
             val lista = ArrayList<ClassroomEntity>()
             lista.add(ClassroomEntity(0, "Matematicas", "Matematicas", "Rafael Perez", "https://dspncdn.com/a1/media/692x/fc/c7/67/fcc76765091aed9c44ad68d48db06c83.jpg", "Ecuaciones Diferenciales aplicadas", "UCA", "9:00 AM c/d","24/07/18 - 04/08/18", "20$"))
             lista.add(ClassroomEntity(1, "Bases de datos", "Bases de datos", "Nelson Obdulio", "https://image.freepik.com/vector-gratis/diseno-del-lenguaje-de-programacion_24908-7968.jpg", "Bases de datos no relacionales", "UCA", "11:00 AM c/d","24/07/18 - 24/09/18", "20$"))
@@ -46,7 +39,6 @@ abstract class KenaryDatabase: RoomDatabase(){
         }
     }
 
-    abstract fun tutorialDao(): TutorialDao
     abstract fun userDao(): UserDao
     abstract fun tutorialDaoA(): TutorialDaoA
     abstract fun classroomDao(): ClassroomDao
