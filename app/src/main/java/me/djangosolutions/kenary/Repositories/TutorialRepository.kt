@@ -15,7 +15,7 @@ import me.djangosolutions.kenary.Entity.UserEntity
 /**
  * Created by Marcelo on 12/07/2018.
  */
-class TutorialRepositoryA(application: Application) {
+class TutorialRepository(application: Application) {
     var mTutorialDao: TutorialDaoA? = null
 
     init{
