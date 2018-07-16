@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,9 +7,9 @@
     android:layout_gravity="center"
     android:gravity="center">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="0dp"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
@@ -18,139 +17,144 @@
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/corners_primary_dark"
-        android:gravity="center"
-        android:paddingBottom="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39">
+        app:layout_constraintVertical_bias="0.32999998">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/create"
+            android:textAppearance="@style/LettersLoginWhite16"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-            <LinearLayout
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/android_material_design_spinnerCat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:padding="8dp">
+                android:hint="@string/session_cat"
+                android:textAlignment="center"
+                android:textAppearance="@style/LettersMedium14"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="18sp"
+                app:met_floatingLabel="normal" />
+        </FrameLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
+        <FrameLayout
+            android:id="@+id/frameLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout4">
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/android_material_design_spinnerSubj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/session_topic"
+                android:textAlignment="center"
+                android:textAppearance="@style/LettersMedium14"
+                android:textColorHint="#ffffff"
+                android:textSize="18sp"
+                app:met_floatingLabel="normal" />
+        </FrameLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/android_material_design_spinnerH"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/create"
-                    android:textAppearance="@style/LettersLoginWhite16"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:hint="HH"
+                    android:padding="4dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/LettersMedium14"
+                    android:textColorHint="#ffffff"
+                    android:textSize="18sp"
+                    app:met_floatingLabel="normal" />
 
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/android_material_design_spinnerM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="MM"
+                    android:padding="4dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/LettersMedium14"
+                    android:textColorHint="#ffffff"
+                    android:textSize="18sp"
+                    app:met_floatingLabel="normal" />
+
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/android_material_design_spinnerT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="AM/PM"
+                    android:padding="4dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/LettersMedium14"
+                    android:textColorHint="#ffffff"
+                    android:textSize="18sp"
+                    app:met_floatingLabel="normal" />
 
             </LinearLayout>
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@color/white">
-
-                <LinearLayout
-                    android:layout_width="338dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:foregroundGravity="center"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="1dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                        android:id="@+id/android_material_design_spinnerCat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/session_cat"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/LettersMedium14"
-                        android:textColor="@color/colorAccent"
-                        android:textColorHint="@color/colorAccent"
-                        android:textSize="18sp"
-                        app:met_floatingLabel="normal" />
-
-                    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                        android:id="@+id/android_material_design_spinnerSubj"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/session_topic"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/LettersMedium14"
-                        android:textColorHint="#ffffff"
-                        android:textSize="18sp"
-                        app:met_floatingLabel="normal" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                            android:id="@+id/android_material_design_spinnerH"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="HH"
-                            android:padding="4dp"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/LettersMedium14"
-                            android:textColorHint="#ffffff"
-                            android:textSize="18sp"
-                            app:met_floatingLabel="normal" />
-
-                        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                            android:id="@+id/android_material_design_spinnerM"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="MM"
-                            android:padding="4dp"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/LettersMedium14"
-                            android:textColorHint="#ffffff"
-                            android:textSize="18sp"
-                            app:met_floatingLabel="normal" />
-
-                        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                            android:id="@+id/android_material_design_spinnerT"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="AM/PM"
-                            android:padding="4dp"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/LettersMedium14"
-                            android:textColorHint="#ffffff"
-                            android:textSize="18sp"
-                            app:met_floatingLabel="normal" />
-
-                    </LinearLayout>
-                </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
 
 
-            </android.support.constraint.ConstraintLayout>
-
-
-        </LinearLayout>
-
-
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <Button
         android:id="@+id/button5"
@@ -161,15 +165,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/corners_accent"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:text="@string/create"
-        android:background="@drawable/corners_accent"
-        android:textStyle="bold"
         android:textAppearance="@style/LettersLoginWhite16"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
 
 
 </android.support.constraint.ConstraintLayout>
