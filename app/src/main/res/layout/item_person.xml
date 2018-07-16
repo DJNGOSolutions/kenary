@@ -14,39 +14,51 @@
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp">
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/imageView_profile_picture"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            tools:src="@drawable/ic_person_black_24dp"/>
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_person_black_24dp" />
 
         <TextView
             android:id="@+id/textView_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/imageView_profile_picture"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:textSize="25sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_profile_picture"
+            app:layout_constraintStart_toEndOf="@+id/imageView_profile_picture"
+            app:layout_constraintTop_toTopOf="@+id/imageView_profile_picture"
+            app:layout_constraintVertical_bias="0.0"
             tools:text="Display Name" />
 
         <TextView
             android:id="@+id/textView_bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView_name"
-            android:layout_below="@+id/textView_name"
-            android:layout_marginStart="2dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="@+id/textView_name"
+            app:layout_constraintTop_toBottomOf="@+id/textView_name"
             tools:text="Institucion" />
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>

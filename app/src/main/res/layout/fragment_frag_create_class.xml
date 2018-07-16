@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,23 +7,27 @@
     tools:context=".Fragments.FragCreateClass">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="95dp"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_alignParentLeft="true">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create new ClassRoom"
+            android:textAppearance="@style/LettersMedium24"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textAppearance="@style/LettersMedium24"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -31,162 +35,151 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="43dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:text="Category"
-        android:textAppearance="@style/LettersLogin20"/>
+        android:textAppearance="@style/LettersLogin20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Topic"
         android:textAppearance="@style/LettersLogin20"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="55dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="36dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="36dp"
-        android:padding="16dp"/>
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="196dp"
-        android:padding="16dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/spinner2"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_alignLeft="@+id/spinner2" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/spinner2"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_marginBottom="221dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/corners_accent"
-        android:textStyle="bold"
-        android:textAppearance="@style/LettersLoginWhite16"
         android:text="Date"
-        android:layout_alignLeft="@+id/textView2" />
+        android:textAppearance="@style/LettersLoginWhite16"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_marginBottom="152dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/corners_accent"
-        android:textStyle="bold"
+        android:text="Time"
         android:textAppearance="@style/LettersLoginWhite16"
-        android:text="Time" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-    <LinearLayout
-        android:layout_width="196dp"
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/dia"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="36dp"
-        android:layout_alignStart="@+id/spinner2"
-        android:layout_alignLeft="@+id/spinner2"
-        android:layout_alignTop="@+id/button2"
-        android:orientation="horizontal"
-        android:gravity="center"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:hint="MM"
+        android:textAlignment="center"
+        android:textAppearance="@style/LettersMedium14"
+        android:textColorHint="#000"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        app:met_floatingLabel="normal" />
 
-        android:layout_centerHorizontal="true"
-        >
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/mes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:hint="DD"
+        android:textAlignment="center"
+        android:textAppearance="@style/LettersMedium14"
+        android:textColorHint="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/dia"
+        app:layout_constraintStart_toEndOf="@+id/dia"
+        app:layout_constraintTop_toTopOf="@+id/dia"
+        app:met_floatingLabel="normal" />
 
-        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-            android:id="@+id/dia"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignBottom="@+id/button2"
-            android:layout_alignLeft="@+id/spinner2"
-            android:layout_alignStart="@+id/spinner2"
-            android:hint="MM"
-            android:layout_marginRight="5dp"
-            android:textAppearance="@style/LettersMedium14"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center"
-            android:textColorHint="#000"
-            app:met_floatingLabel="normal" />
-
-        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-            android:id="@+id/mes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:hint="DD"
-            android:textAlignment="center"
-            android:textAppearance="@style/LettersMedium14"
-            android:textColorHint="#ffffff"
-            app:met_floatingLabel="normal" />
-
-        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-            android:id="@+id/anio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:hint="YYYY"
-            android:textAlignment="center"
-            android:textAppearance="@style/LettersMedium14"
-            android:textColorHint="#ffffff"
-            app:met_floatingLabel="normal" />
-
-
-    </LinearLayout>
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/anio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:hint="YYYY"
+        android:textAlignment="center"
+        android:textAppearance="@style/LettersMedium14"
+        android:textColorHint="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/mes"
+        app:layout_constraintStart_toEndOf="@+id/mes"
+        app:layout_constraintTop_toTopOf="@+id/mes"
+        app:met_floatingLabel="normal" />
 
 
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/editText2"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/spinner2"
-        android:layout_alignTop="@+id/button3"
-        android:layout_alignLeft="@+id/spinner2"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
         android:hint="AM/PM"
-        android:textAppearance="@style/LettersMedium14"
         android:textAlignment="center"
+        android:textAppearance="@style/LettersMedium14"
         android:textColorHint="#000"
-        app:met_floatingLabel="normal"/>
+        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:met_floatingLabel="normal" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:layout_marginBottom="38dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/create_class"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/corners_accent"
+        android:text="@string/create_class"
+        android:textAppearance="@style/LettersLoginWhite16"
         android:textStyle="bold"
-        android:textAppearance="@style/LettersLoginWhite16" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintVertical_bias="0.0" />
 
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
