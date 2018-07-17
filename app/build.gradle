@@ -44,6 +44,9 @@ dependencies {
     //  Librerias de Lifecycle y uso de KAPT
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     kapt "android.arch.lifecycle:compiler:1.1.1"
+    //  Libreria de paging y runtime Lifecycle
+    implementation 'android.arch.lifecycle:runtime:1.1.1'
+    implementation 'android.arch.paging:runtime:1.0.1'
     //  Libreria de Picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
     //  Libreria de RXjava
